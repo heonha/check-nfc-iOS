@@ -12,7 +12,7 @@ struct SummeryViewContainer: View {
         NavigationView {
             VStack {
                 HStack {
-                    Text("2023년 3월 28일 (화)")
+                    Text("Ive님의 오늘 기록")
                         .font(.system(size: 24, weight: .bold))
                     Spacer()
                 }
@@ -23,9 +23,9 @@ struct SummeryViewContainer: View {
 
                     VStack(spacing: 8) {
                         Text("출근시간")
-                            .font(.system(size: 24, weight: .bold))
+                            .font(.system(size: 20, weight: .bold))
                         Text("AM10:00")
-                            .font(.system(size: 20, weight: .medium))
+                            .font(.system(size: 24, weight: .medium))
 
                     }
                     Spacer()
@@ -33,10 +33,10 @@ struct SummeryViewContainer: View {
 
                     VStack(spacing: 8) {
                         Text("퇴근시간")
-                            .font(.system(size: 24, weight: .bold))
+                            .font(.system(size: 20, weight: .bold))
 
-                        Text("AM10:00")
-                            .font(.system(size: 20, weight: .medium))
+                        Text("PM 7:00")
+                            .font(.system(size: 24, weight: .medium))
                     }
                     Spacer()
 
@@ -55,17 +55,19 @@ struct SummeryViewContainer: View {
                             Text("이번주에는 평균 00시간 근무했어요 💦")
                                 .foregroundColor(.secondary)
                         }
-                        ZStack {
-                            RoundedRectangle(cornerRadius: 8)
-                                .fill(.gray)
-                            .frame(height: 200)
-                            Text("리스트")
-                        }
-                        ZStack {
-                            RoundedRectangle(cornerRadius: 8)
-                                .fill(.gray)
-                            .frame(height: 200)
-                            Text("그래프")
+                        ScrollView {
+                            ZStack {
+                                RoundedRectangle(cornerRadius: 8)
+                                    .fill(.gray)
+                                    .frame(height: 200)
+                                Text("리스트")
+                            }
+                            ZStack {
+                                RoundedRectangle(cornerRadius: 8)
+                                    .fill(.gray)
+                                    .frame(height: 200)
+                                Text("그래프")
+                            }
                         }
                     }
                 }
@@ -84,7 +86,7 @@ struct SummeryViewContainer: View {
                                 .resizable()
                                 .scaledToFit()
                                 .frame(width: 30, height: 30)
-                                .foregroundColor(.white)
+                                .colorInvert()
                             Text("NFC 태그")
                                 .foregroundColor(.white)
                                 .font(.system(size: 20, weight: .bold))
@@ -94,6 +96,7 @@ struct SummeryViewContainer: View {
                 }
                 .frame(height: 50)
                 .padding()
+                .navigationTitle("2023년 3월 28일 (화)")
                 .navigationBarTitleDisplayMode(.inline)
             }
 
