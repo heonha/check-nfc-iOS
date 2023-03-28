@@ -49,8 +49,12 @@ struct SummeryViewContainer: View {
 
                 Group {
                     VStack(alignment: .leading) {
-                        Text("최근 출퇴근 현황")
-                            .font(.system(size: 24, weight: .bold))
+                        VStack(alignment: .leading, spacing: 8) {
+                            Text("최근 출퇴근 현황")
+                                .font(.system(size: 24, weight: .bold))
+                            Text("이번주에는 평균 00시간 근무했어요 💦")
+                                .foregroundColor(.secondary)
+                        }
                         ZStack {
                             RoundedRectangle(cornerRadius: 8)
                                 .fill(.gray)
@@ -65,7 +69,7 @@ struct SummeryViewContainer: View {
                         }
                     }
                 }
-                .padding()
+                .padding(.horizontal)
 
                 Spacer()
 
