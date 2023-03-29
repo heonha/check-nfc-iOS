@@ -6,8 +6,11 @@
 //
 
 import SwiftUI
+import SwiftNFC
 
 struct SummeryViewContainer: View {
+
+
     var body: some View {
         NavigationView {
             VStack {
@@ -75,25 +78,7 @@ struct SummeryViewContainer: View {
 
                 Spacer()
 
-                Button {
-
-                } label: {
-                    ZStack {
-                        RoundedRectangle(cornerRadius: 8)
-                            .fill(.blue)
-                        HStack {
-                            Image("NFC")
-                                .resizable()
-                                .scaledToFit()
-                                .frame(width: 30, height: 30)
-                                .colorInvert()
-                            Text("NFC 태그")
-                                .foregroundColor(.white)
-                                .font(.system(size: 20, weight: .bold))
-                        }
-
-                    }
-                }
+                NFCReadButton()
                 .frame(height: 50)
                 .padding()
                 .navigationTitle("2023년 3월 28일 (화)")
