@@ -6,9 +6,14 @@
 //
 
 import SwiftUI
-import SwiftNFC
 
 final class MainViewModel: ObservableObject {
+
+    static let shared = MainViewModel()
+
+    private init() {
+
+    }
 
     @Published var nfcReader = NFCNDEFReader.shared
 

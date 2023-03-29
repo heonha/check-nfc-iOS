@@ -14,6 +14,10 @@ struct ContentView: View {
                 .tabItem {
                     Image(systemName: "checkmark.seal")
                 }
+            OnboardingView()
+                .tabItem {
+                    Image(systemName: "xmark")
+                }
         }
     }
 }

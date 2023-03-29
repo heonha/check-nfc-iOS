@@ -10,7 +10,14 @@ import CoreNFC
 
 struct NFCReadButton: View {
 
+    enum StackAxis {
+        case horizontal
+        case vertical
+    }
+
     @StateObject var viewModel: MainViewModel
+
+    var axis: StackAxis = .horizontal
 
     var body: some View {
         Button {
@@ -19,24 +26,39 @@ struct NFCReadButton: View {
             ZStack {
                 RoundedRectangle(cornerRadius: 8)
                     .fill(.blue)
-                HStack {
-                    Image("NFC")
-                        .resizable()
-                        .scaledToFit()
-                        .frame(width: 30, height: 30)
-                        .colorInvert()
-                    Text("NFC 태그")
-                        .foregroundColor(.white)
-                        .font(.system(size: 20, weight: .bold))
-                }
 
+                switch axis {
+                case .horizontal:
+                    HStack {
+                        Image("NFC")
+                            .resizable()
+                            .scaledToFit()
+                            .frame(width: 30, height: 30)
+                            .colorInvert()
+                        Text("NFC 태그")
+                            .foregroundColor(.white)
+                            .font(.system(size: 20, weight: .bold))
+                    }
+                case .vertical:
+                    VStack {
+                        Image("NFC")
+                            .resizable()
+                            .scaledToFit()
+                            .frame(width: 30, height: 30)
+                            .colorInvert()
+                        Text("NFC 태그")
+                            .foregroundColor(.white)
+                            .font(.system(size: 20, weight: .bold))
+                    }
+                }
             }
         }
     }
+
 }
 
 struct NFCReadButton_Previews: PreviewProvider {
     static var previews: some View {
-        NFCReadButton(viewModel: MainViewModel())
+        NFCReadButton(viewModel: MainViewModel.shared)
     }
 }

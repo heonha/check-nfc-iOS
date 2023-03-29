@@ -11,7 +11,7 @@ struct MainViewContainer: View {
 
     @State var showDashboard = false
 
-    @ObservedObject var viewModel = MainViewModel()
+    @ObservedObject var viewModel = MainViewModel.shared
 
     var body: some View {
         NavigationView {
