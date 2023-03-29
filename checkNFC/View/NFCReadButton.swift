@@ -11,7 +11,7 @@ import CoreNFC
 struct NFCReadButton: View {
 
     @State var urlT = ""
-    @State var reader = NFCTagReader()
+    @State var reader = NFCNDEFReader()
 
     var body: some View {
         Button {
