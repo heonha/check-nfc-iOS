@@ -10,12 +10,11 @@ import CoreNFC
 
 struct NFCReadButton: View {
 
-    @State var urlT = ""
-    @State var reader = NFCNDEFReader()
+    @StateObject var viewModel: MainViewModel
 
     var body: some View {
         Button {
-            reader.scan()
+            viewModel.nfcReader.scan()
         } label: {
             ZStack {
                 RoundedRectangle(cornerRadius: 8)
@@ -38,6 +37,6 @@ struct NFCReadButton: View {
 
 struct NFCReadButton_Previews: PreviewProvider {
     static var previews: some View {
-        NFCReadButton()
+        NFCReadButton(viewModel: MainViewModel())
     }
 }

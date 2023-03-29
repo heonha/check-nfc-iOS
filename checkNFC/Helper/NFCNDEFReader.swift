@@ -8,7 +8,13 @@
 import SwiftUI
 import CoreNFC
 
-final class NFCNDEFReader: NSObject, ObservableObject, NFCNDEFReaderSessionDelegate {
+final class NFCNDEFReader: NSObject, NFCNDEFReaderSessionDelegate {
+
+    static let shared = NFCNDEFReader()
+
+    private override init() {
+
+    }
 
     var nfcSession: NFCNDEFReaderSession?
 
@@ -24,14 +30,7 @@ final class NFCNDEFReader: NSObject, ObservableObject, NFCNDEFReaderSessionDeleg
 
     func readerSession(_ session: NFCNDEFReaderSession, didInvalidateWithError error: Error) { }
 
-    func readerSession(_ session: NFCNDEFReaderSession, didDetectNDEFs messages: [NFCNDEFMessage]) {
-        //        print("메세지")
-        //        let tagID = messages.first?.records.first?.payload.base64EncodedString()
-        //        print("Tag ID: \(tagID)")
-        //
-        //        session.alertMessage = "확인됨"
-        //        session.invalidate()
-    }
+    func readerSession(_ session: NFCNDEFReaderSession, didDetectNDEFs messages: [NFCNDEFMessage]) { }
 
     func readerSession(_ session: NFCNDEFReaderSession, didDetect tags: [NFCNDEFTag]) {
         if tags.count > 1 { // 태그가 둘이상 감지되면
