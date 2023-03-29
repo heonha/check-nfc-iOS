@@ -11,6 +11,8 @@ final class MainViewModel: ObservableObject {
 
     static let shared = MainViewModel()
 
+    @AppStorage("userID") var userID = ""
+
     private init() {
 
     }

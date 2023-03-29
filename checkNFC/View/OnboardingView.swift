@@ -229,7 +229,7 @@ struct OnboardingView: View {
 
 
             Button {
-
+                MainViewModel.shared.userID = UUID().uuidString
             } label: {
                 ZStack {
                     RoundedRectangle(cornerRadius: 10)

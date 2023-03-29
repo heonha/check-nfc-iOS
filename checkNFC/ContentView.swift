@@ -8,17 +8,17 @@
 import SwiftUI
 
 struct ContentView: View {
+
+    @EnvironmentObject var viewModel: MainViewModel
+
     var body: some View {
-        TabView {
-            MainViewContainer()
-                .tabItem {
-                    Image(systemName: "checkmark.seal")
-                }
+
+        if viewModel.userID.isEmpty {
             OnboardingView()
-                .tabItem {
-                    Image(systemName: "xmark")
-                }
+        } else {
+            MainViewContainer()
         }
+
     }
 }
 

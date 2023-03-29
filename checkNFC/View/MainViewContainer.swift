@@ -49,6 +49,13 @@ struct MainViewContainer: View {
                     .frame(height: 50)
                     .padding()
             }
+            .toolbar {
+                ToolbarItem(placement: .navigationBarLeading) {
+                    Button("초기화") {
+                        viewModel.userID = ""
+                    }
+                }
+            }
 
         }
     }

@@ -12,6 +12,7 @@ struct checkNFCApp: App {
     var body: some Scene {
         WindowGroup {
             ContentView()
+                .environmentObject(MainViewModel.shared)
         }
     }
 }
