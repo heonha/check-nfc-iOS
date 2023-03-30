@@ -22,8 +22,8 @@ struct RegistWelcomeView: View {
 
             Spacer()
 
-            NavigationLink {
-                RegistNameView(viewModel: viewModel)
+            Button {
+                viewModel.selection = .name
             } label: {
                 ZStack {
                     RoundedRectangle(cornerRadius: 10)

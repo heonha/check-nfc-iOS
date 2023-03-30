@@ -101,8 +101,8 @@ struct RegistTimeView: View {
 
             Spacer()
 
-            NavigationLink {
-                RegistNFCView(viewModel: viewModel)
+            Button {
+
             } label: {
                 ZStack {
                     RoundedRectangle(cornerRadius: 10)
@@ -110,10 +110,10 @@ struct RegistTimeView: View {
                     Text("다음")
                         .foregroundColor(.init(uiColor: .systemBackground))
                         .font(.system(size: 18, weight: .medium))
+
                 }
             }
             .frame(height: 40)
-
         }
         .padding()
     }

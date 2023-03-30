@@ -16,7 +16,6 @@ struct RegistNameView: View {
 
             Spacer()
 
-
             Text("앱에서 사용할 이름을 입력하세요.")
                 .font(.system(size: 20, weight: .medium))
             ZStack {
@@ -32,8 +31,8 @@ struct RegistNameView: View {
 
             Spacer()
 
-            NavigationLink {
-                RegistTimeView(viewModel: viewModel)
+            Button {
+
             } label: {
                 ZStack {
                     RoundedRectangle(cornerRadius: 10)
