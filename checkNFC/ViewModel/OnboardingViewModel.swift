@@ -7,8 +7,19 @@
 
 import SwiftUI
 
+enum OnboardingSelection: Hashable {
+    case welcome
+    case name
+    case time
+    case nfc
+}
+
+
+
 final class OnboardingViewModel: ObservableObject, CircularClockViewProtocol {
-    
+
+    @Published var selection: OnboardingSelection = .welcome
+
     @Published var startWorkTime: String = ""
     @Published var endWorkTime: String = ""
 
