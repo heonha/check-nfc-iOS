@@ -7,7 +7,10 @@
 
 import SwiftUI
 
-final class OnboardingViewModel: ObservableObject {
+final class OnboardingViewModel: ObservableObject, CircularClockViewProtocol {
+    
+    @Published var startWorkTime: String = ""
+    @Published var endWorkTime: String = ""
 
     @Published var name = ""
     @Published var nfcID = ""
@@ -16,5 +19,10 @@ final class OnboardingViewModel: ObservableObject {
 
     @Published var animationValue: CGFloat = 0
 
+    static let shared = OnboardingViewModel()
+
+    private init() {
+        
+    }
 
 }

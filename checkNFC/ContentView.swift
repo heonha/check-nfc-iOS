@@ -14,11 +14,10 @@ struct ContentView: View {
     var body: some View {
 
         if viewModel.userID.isEmpty {
-            OnboardingView()
+            RegistContainerView()
         } else {
             MainViewContainer()
         }
-
     }
 }
 

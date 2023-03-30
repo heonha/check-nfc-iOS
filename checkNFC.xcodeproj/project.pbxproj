@@ -7,12 +7,20 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3900F29D29D51C3400C5AB70 /* HGCircularSlider in Frameworks */ = {isa = PBXBuildFile; productRef = 3900F29C29D51C3400C5AB70 /* HGCircularSlider */; };
+		3900F2A229D51DF600C5AB70 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 3900F2A129D51DF600C5AB70 /* SnapKit */; };
+		3900F2A429D51EA600C5AB70 /* CircularClockViewPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3900F2A329D51EA600C5AB70 /* CircularClockViewPresenter.swift */; };
+		3900F2B129D55D6000C5AB70 /* CircularClockView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3900F2B029D55D6000C5AB70 /* CircularClockView.swift */; };
+		392EF9A629D57BFA009D6158 /* RegistContainerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 392EF9A529D57BFA009D6158 /* RegistContainerView.swift */; };
+		392EF9A829D57C31009D6158 /* RegistWelcomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 392EF9A729D57C31009D6158 /* RegistWelcomeView.swift */; };
+		392EF9AA29D57C52009D6158 /* RegistNameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 392EF9A929D57C52009D6158 /* RegistNameView.swift */; };
+		392EF9AC29D57D63009D6158 /* RegistTimeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 392EF9AB29D57D63009D6158 /* RegistTimeView.swift */; };
+		392EF9AE29D57DA0009D6158 /* RegistNFCView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 392EF9AD29D57DA0009D6158 /* RegistNFCView.swift */; };
 		39D92BB629D3E051000F9104 /* MainViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39D92BB529D3E051000F9104 /* MainViewModel.swift */; };
 		39D92BB829D3F67A000F9104 /* NFCReadButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39D92BB729D3F67A000F9104 /* NFCReadButton.swift */; };
 		39D92BBB29D41E69000F9104 /* NFCTagReader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39D92BBA29D41E69000F9104 /* NFCTagReader.swift */; };
 		39D92BBD29D41EB3000F9104 /* NFCNDEFReader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39D92BBC29D41EB3000F9104 /* NFCNDEFReader.swift */; };
 		39D92BC329D42C5D000F9104 /* CheckDashboardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39D92BC229D42C5D000F9104 /* CheckDashboardView.swift */; };
-		39D92BC629D43DA3000F9104 /* OnboardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39D92BC529D43DA3000F9104 /* OnboardingView.swift */; };
 		39D92BC829D43EE5000F9104 /* OnboardingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39D92BC729D43EE5000F9104 /* OnboardingViewModel.swift */; };
 		39F0454829D3300D00F4323F /* checkNFCApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39F0454729D3300D00F4323F /* checkNFCApp.swift */; };
 		39F0454A29D3300D00F4323F /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39F0454929D3300D00F4323F /* ContentView.swift */; };
@@ -22,6 +30,13 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		3900F2A329D51EA600C5AB70 /* CircularClockViewPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircularClockViewPresenter.swift; sourceTree = "<group>"; };
+		3900F2B029D55D6000C5AB70 /* CircularClockView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircularClockView.swift; sourceTree = "<group>"; };
+		392EF9A529D57BFA009D6158 /* RegistContainerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistContainerView.swift; sourceTree = "<group>"; };
+		392EF9A729D57C31009D6158 /* RegistWelcomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistWelcomeView.swift; sourceTree = "<group>"; };
+		392EF9A929D57C52009D6158 /* RegistNameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistNameView.swift; sourceTree = "<group>"; };
+		392EF9AB29D57D63009D6158 /* RegistTimeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistTimeView.swift; sourceTree = "<group>"; };
+		392EF9AD29D57DA0009D6158 /* RegistNFCView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistNFCView.swift; sourceTree = "<group>"; };
 		39D92BAE29D3D3E1000F9104 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		39D92BAF29D3D413000F9104 /* checkNFC.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = checkNFC.entitlements; sourceTree = "<group>"; };
 		39D92BB529D3E051000F9104 /* MainViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewModel.swift; sourceTree = "<group>"; };
@@ -29,7 +44,6 @@
 		39D92BBA29D41E69000F9104 /* NFCTagReader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NFCTagReader.swift; sourceTree = "<group>"; };
 		39D92BBC29D41EB3000F9104 /* NFCNDEFReader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NFCNDEFReader.swift; sourceTree = "<group>"; };
 		39D92BC229D42C5D000F9104 /* CheckDashboardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckDashboardView.swift; sourceTree = "<group>"; };
-		39D92BC529D43DA3000F9104 /* OnboardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingView.swift; sourceTree = "<group>"; };
 		39D92BC729D43EE5000F9104 /* OnboardingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingViewModel.swift; sourceTree = "<group>"; };
 		39F0454429D3300D00F4323F /* checkNFC.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = checkNFC.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		39F0454729D3300D00F4323F /* checkNFCApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = checkNFCApp.swift; sourceTree = "<group>"; };
@@ -44,12 +58,33 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3900F29D29D51C3400C5AB70 /* HGCircularSlider in Frameworks */,
+				3900F2A229D51DF600C5AB70 /* SnapKit in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		392EF9A229D57BCE009D6158 /* Regist */ = {
+			isa = PBXGroup;
+			children = (
+				392EF9A529D57BFA009D6158 /* RegistContainerView.swift */,
+				392EF9A729D57C31009D6158 /* RegistWelcomeView.swift */,
+				392EF9A929D57C52009D6158 /* RegistNameView.swift */,
+				392EF9AB29D57D63009D6158 /* RegistTimeView.swift */,
+				392EF9AD29D57DA0009D6158 /* RegistNFCView.swift */,
+			);
+			path = Regist;
+			sourceTree = "<group>";
+		};
+		392EF9AF29D58523009D6158 /* Test */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Test;
+			sourceTree = "<group>";
+		};
 		39F0453B29D3300D00F4323F = {
 			isa = PBXGroup;
 			children = (
@@ -77,6 +112,7 @@
 				39F0455529D3305600F4323F /* View */,
 				39F0455729D3306400F4323F /* ViewModel */,
 				39F0455629D3305D00F4323F /* Model */,
+				392EF9AF29D58523009D6158 /* Test */,
 				39F0455A29D3307A00F4323F /* Resources */,
 				39F0454D29D3300E00F4323F /* Preview Content */,
 			);
@@ -94,10 +130,12 @@
 		39F0455529D3305600F4323F /* View */ = {
 			isa = PBXGroup;
 			children = (
+				392EF9A229D57BCE009D6158 /* Regist */,
 				39F0455D29D330BD00F4323F /* MainViewContainer.swift */,
 				39D92BC229D42C5D000F9104 /* CheckDashboardView.swift */,
 				39D92BB729D3F67A000F9104 /* NFCReadButton.swift */,
-				39D92BC529D43DA3000F9104 /* OnboardingView.swift */,
+				3900F2A329D51EA600C5AB70 /* CircularClockViewPresenter.swift */,
+				3900F2B029D55D6000C5AB70 /* CircularClockView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -152,6 +190,8 @@
 			);
 			name = checkNFC;
 			packageProductDependencies = (
+				3900F29C29D51C3400C5AB70 /* HGCircularSlider */,
+				3900F2A129D51DF600C5AB70 /* SnapKit */,
 			);
 			productName = checkNFC;
 			productReference = 39F0454429D3300D00F4323F /* checkNFC.app */;
@@ -182,6 +222,8 @@
 			);
 			mainGroup = 39F0453B29D3300D00F4323F;
 			packageReferences = (
+				3900F29B29D51C3400C5AB70 /* XCRemoteSwiftPackageReference "HGCircularSlider" */,
+				3900F2A029D51DF600C5AB70 /* XCRemoteSwiftPackageReference "SnapKit" */,
 			);
 			productRefGroup = 39F0454529D3300D00F4323F /* Products */;
 			projectDirPath = "";
@@ -212,13 +254,19 @@
 				39D92BB629D3E051000F9104 /* MainViewModel.swift in Sources */,
 				39F0454A29D3300D00F4323F /* ContentView.swift in Sources */,
 				39D92BBD29D41EB3000F9104 /* NFCNDEFReader.swift in Sources */,
-				39D92BC629D43DA3000F9104 /* OnboardingView.swift in Sources */,
+				3900F2A429D51EA600C5AB70 /* CircularClockViewPresenter.swift in Sources */,
+				392EF9AA29D57C52009D6158 /* RegistNameView.swift in Sources */,
+				392EF9A629D57BFA009D6158 /* RegistContainerView.swift in Sources */,
 				39D92BB829D3F67A000F9104 /* NFCReadButton.swift in Sources */,
+				392EF9AE29D57DA0009D6158 /* RegistNFCView.swift in Sources */,
+				3900F2B129D55D6000C5AB70 /* CircularClockView.swift in Sources */,
 				39D92BC829D43EE5000F9104 /* OnboardingViewModel.swift in Sources */,
 				39D92BC329D42C5D000F9104 /* CheckDashboardView.swift in Sources */,
+				392EF9A829D57C31009D6158 /* RegistWelcomeView.swift in Sources */,
 				39D92BBB29D41E69000F9104 /* NFCTagReader.swift in Sources */,
 				39F0455E29D330BD00F4323F /* MainViewContainer.swift in Sources */,
 				39F0454829D3300D00F4323F /* checkNFCApp.swift in Sources */,
+				392EF9AC29D57D63009D6158 /* RegistTimeView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -431,6 +479,38 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		3900F29B29D51C3400C5AB70 /* XCRemoteSwiftPackageReference "HGCircularSlider" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/HamzaGhazouani/HGCircularSlider.git";
+			requirement = {
+				kind = upToNextMinorVersion;
+				minimumVersion = 2.2.1;
+			};
+		};
+		3900F2A029D51DF600C5AB70 /* XCRemoteSwiftPackageReference "SnapKit" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SnapKit/SnapKit.git";
+			requirement = {
+				kind = upToNextMinorVersion;
+				minimumVersion = 5.6.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		3900F29C29D51C3400C5AB70 /* HGCircularSlider */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 3900F29B29D51C3400C5AB70 /* XCRemoteSwiftPackageReference "HGCircularSlider" */;
+			productName = HGCircularSlider;
+		};
+		3900F2A129D51DF600C5AB70 /* SnapKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 3900F2A029D51DF600C5AB70 /* XCRemoteSwiftPackageReference "SnapKit" */;
+			productName = SnapKit;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 39F0453C29D3300D00F4323F /* Project object */;
 }
