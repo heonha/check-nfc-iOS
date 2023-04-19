@@ -100,6 +100,18 @@
 			path = Test;
 			sourceTree = "<group>";
 		};
+		39DAEB3829EF8D8200AB132B /* DataModel */ = {
+			isa = PBXGroup;
+			children = (
+				397A466329EF84E4008AA4FF /* UserData.swift */,
+				397A466529EF8C89008AA4FF /* WorkingTime.swift */,
+				397A466729EF8C93008AA4FF /* WorkInfo.swift */,
+				397A466929EF8C9D008AA4FF /* TagInfo.swift */,
+				397A466B29EF8CAC008AA4FF /* NFCTagInfo.swift */,
+			);
+			path = DataModel;
+			sourceTree = "<group>";
+		};
 		39F0453B29D3300D00F4323F = {
 			isa = PBXGroup;
 			children = (
@@ -159,11 +171,7 @@
 			isa = PBXGroup;
 			children = (
 				395A602129EC22A5006579FD /* OnboardingModel.swift */,
-				397A466329EF84E4008AA4FF /* UserData.swift */,
-				397A466529EF8C89008AA4FF /* WorkingTime.swift */,
-				397A466729EF8C93008AA4FF /* WorkInfo.swift */,
-				397A466929EF8C9D008AA4FF /* TagInfo.swift */,
-				397A466B29EF8CAC008AA4FF /* NFCTagInfo.swift */,
+				39DAEB3829EF8D8200AB132B /* DataModel */,
 			);
 			path = Model;
 			sourceTree = "<group>";
