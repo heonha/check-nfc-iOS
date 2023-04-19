@@ -9,7 +9,7 @@ import SwiftUI
 
 struct RegistTimeView: View {
 
-    @StateObject var viewModel: OnboardingViewModel
+    @ObservedObject var viewModel: OnboardingViewModel
 
     var body: some View {
         VStack(spacing: 16) {
@@ -97,8 +97,6 @@ struct RegistTimeView: View {
 
             }
 
-            CircularClockViewPresenter(viewModel: viewModel)
-
             Spacer()
 
             Button {
@@ -118,9 +116,9 @@ struct RegistTimeView: View {
         .padding()
     }
 }
-//
-//struct RegistTimeView_Previews: PreviewProvider {
-//    static var previews: some View {
-//        RegistTimeView()
-//    }
-//}
+
+struct RegistTimeView_Previews: PreviewProvider {
+    static var previews: some View {
+        RegistTimeView(viewModel: OnboardingViewModel.shared)
+    }
+}

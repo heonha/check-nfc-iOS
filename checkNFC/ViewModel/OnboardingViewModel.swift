@@ -16,7 +16,7 @@ enum OnboardingSelection: Hashable {
 
 
 
-final class OnboardingViewModel: ObservableObject, CircularClockViewProtocol {
+final class OnboardingViewModel: ObservableObject {
 
     @Published private var model = OnboardingModel()
 
