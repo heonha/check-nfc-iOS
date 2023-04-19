@@ -18,17 +18,17 @@ enum OnboardingSelection: Hashable {
 
 final class OnboardingViewModel: ObservableObject, CircularClockViewProtocol {
 
-    @Published var selection: OnboardingSelection = .welcome
+    @Published private var model = OnboardingModel()
 
-    @Published var startWorkTime: String = ""
-    @Published var endWorkTime: String = ""
+    var selection: OnboardingSelection = .welcome
 
-    @Published var name = ""
-    @Published var nfcID = ""
-    @Published var workingTime = 8.0
-    @Published var lunchTime = 1.0
-
-    @Published var animationValue: CGFloat = 0
+    var startWorkTime: String = ""
+    var endWorkTime: String = ""
+    var name = ""
+    var nfcID = ""
+    var workingTime = 8.0
+    var lunchTime = 1.0
+    var animationValue: CGFloat = 0
 
     static let shared = OnboardingViewModel()
 

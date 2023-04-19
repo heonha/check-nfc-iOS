@@ -59,7 +59,6 @@ final class NFCNDEFReader: NSObject, NFCNDEFReaderSessionDelegate {
                     return
                 }
                 let tagID = message?.records.first?.payload.base64EncodedString()
-                print(tagID)
                 session.alertMessage = "NFC 체크 완료!"
                 session.invalidate()
 

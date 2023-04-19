@@ -17,6 +17,6 @@ final class MainViewModel: ObservableObject {
 
     }
 
-    @Published var nfcReader = NFCNDEFReader.shared
+    var nfcReader = NFCNDEFReader.shared
 
 }

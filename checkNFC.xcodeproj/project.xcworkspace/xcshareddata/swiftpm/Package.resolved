@@ -1,0 +1,23 @@
+{
+  "pins" : [
+    {
+      "identity" : "hgcircularslider",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/HamzaGhazouani/HGCircularSlider.git",
+      "state" : {
+        "revision" : "2b98462d32bf7211851aa73537dbaba5dd80229e",
+        "version" : "2.2.1"
+      }
+    },
+    {
+      "identity" : "snapkit",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/SnapKit/SnapKit.git",
+      "state" : {
+        "revision" : "f222cbdf325885926566172f6f5f06af95473158",
+        "version" : "5.6.0"
+      }
+    }
+  ],
+  "version" : 2
+}
