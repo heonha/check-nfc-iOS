@@ -7,11 +7,11 @@
 
 import SwiftUI
 
-struct MainViewContainer: View {
+struct DashboardView: View {
 
     @State var showDashboard = false
 
-    @ObservedObject var viewModel = MainViewModel.shared
+    @EnvironmentObject var viewModel: MainViewModel
 
     var body: some View {
         NavigationView {
@@ -26,14 +26,13 @@ struct MainViewContainer: View {
                 }
                 .padding()
 
-
                 NavigationLink {
-                    CheckDashboardView()
+                    DetailDashboardView()
                 } label: {
                     timeDashboard
                 }
                 .sheet(isPresented: $showDashboard, content: {
-                    CheckDashboardView()
+                    DetailDashboardView()
                 })
                 .padding()
 
@@ -60,7 +59,6 @@ struct MainViewContainer: View {
         }
     }
 
-
     var timeDashboard: some View {
         HStack(spacing: 8) {
             Spacer()
@@ -72,8 +70,8 @@ struct MainViewContainer: View {
                     .font(.system(size: 24, weight: .medium))
 
             }
-            Spacer()
 
+            Spacer()
 
             VStack(spacing: 8) {
                 Text("퇴근시간")
@@ -83,7 +81,6 @@ struct MainViewContainer: View {
                     .font(.system(size: 24, weight: .medium))
             }
 
-
             Spacer()
 
         }
@@ -91,8 +88,3 @@ struct MainViewContainer: View {
     }
 }
 
-struct SummeryViewContainer_Previews: PreviewProvider {
-    static var previews: some View {
-        MainViewContainer()
-    }
-}

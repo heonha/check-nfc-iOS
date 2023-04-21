@@ -9,7 +9,9 @@ import SwiftUI
 
 struct RegistNFCView: View {
 
-    @StateObject var viewModel: OnboardingViewModel
+    @EnvironmentObject var viewModel: RegistViewModel
+    @StateObject var coordinator = Coordinator<RegistDestination>(destination: .none)
+    @ObservedObject var mainViewModel = MainViewModel.shared
 
     var body: some View {
         VStack(spacing: 16) {
@@ -43,7 +45,7 @@ struct RegistNFCView: View {
 
 
             Button {
-                MainViewModel.shared.userID = UUID().uuidString
+                mainViewModel.userID = UUID().uuidString
             } label: {
                 ZStack {
                     RoundedRectangle(cornerRadius: 10)
@@ -60,9 +62,12 @@ struct RegistNFCView: View {
         .padding()
     }
 }
-//
-//struct RegistNFCView_Previews: PreviewProvider {
-//    static var previews: some View {
-//        RegistNFCView()
-//    }
-//}
+
+struct RegistNFCView_Previews: PreviewProvider {
+    static var previews: some View {
+        NavigationView {
+            RegistNFCView()
+                .environmentObject(RegistViewModel())
+        }
+    }
+}
