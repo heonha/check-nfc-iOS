@@ -1,5 +1,5 @@
 //
-//  CheckDashboardView.swift
+//  DetailDashboardView.swift
 //  checkNFC
 //
 //  Created by Heonjin Ha on 2023/03/29.
@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct CheckDashboardView: View {
+struct DetailDashboardView: View {
     var body: some View {
 
         VStack(alignment: .leading) {
@@ -38,6 +38,6 @@ struct CheckDashboardView: View {
 
 struct CheckDashboardView_Previews: PreviewProvider {
     static var previews: some View {
-        CheckDashboardView()
+        DetailDashboardView()
     }
 }

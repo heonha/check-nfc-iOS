@@ -9,39 +9,48 @@ import SwiftUI
 
 struct RegistWelcomeView: View {
 
-    @StateObject var viewModel: OnboardingViewModel
+    @EnvironmentObject var viewModel: RegistViewModel
+    @StateObject var coordinator = Coordinator<RegistDestination>(destination: .none)
 
     var body: some View {
-        VStack(spacing: 16) {
-            Spacer()
+        ZStack {
+            coordinator.navigationLinkSection()
+            VStack(spacing: 16) {
+                Spacer()
 
-            Text("NFC 출근체크앱을 시작합니다.")
-            Text("출근체크를 위해서 몇가지 준비해볼까요?💪")
-                .font(.system(size: 18, weight: .medium))
-                .padding(.bottom)
+                Text("NFC 출근체크앱을 시작합니다.")
 
-            Spacer()
+                Text("출근체크를 위해서 몇가지 준비해볼까요?💪")
+                    .font(.system(size: 18, weight: .medium))
+                    .padding(.bottom)
 
-            Button {
-                viewModel.selection = .name
-            } label: {
-                ZStack {
-                    RoundedRectangle(cornerRadius: 10)
-                        .fill(Color.init(uiColor: .systemBlue))
-                    Text("다음")
-                        .foregroundColor(.init(uiColor: .systemBackground))
-                        .font(.system(size: 18, weight: .medium))
+                Spacer()
 
+                Button {
+                    coordinator.push(destination: .name)
+                } label: {
+                    ZStack {
+                        RoundedRectangle(cornerRadius: 10)
+                            .fill(Color.init(uiColor: .systemBlue))
+                        Text("다음")
+                            .foregroundColor(.init(uiColor: .systemBackground))
+                            .font(.system(size: 18, weight: .medium))
+
+                    }
                 }
+                .frame(height: 40)
             }
-            .frame(height: 40)
+            .padding()
         }
-        .padding()
+    }
+
+}
+
+struct WelcomeView_Previews: PreviewProvider {
+    static var previews: some View {
+        NavigationView {
+            RegistWelcomeView()
+                .environmentObject(RegistViewModel())
+        }
     }
 }
-//
-//struct WelcomeView_Previews: PreviewProvider {
-//    static var previews: some View {
-//        WelcomeView()
-//    }
-//}
