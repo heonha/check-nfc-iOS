@@ -11,7 +11,8 @@ struct RegistNFCView: View {
 
     @EnvironmentObject var viewModel: RegistViewModel
     @StateObject var coordinator = Coordinator<RegistDestination>(destination: .none)
-    @ObservedObject var mainViewModel = MainViewModel.shared
+    @ObservedObject var mainViewModel = HomeViewModel.shared
+
 
     var body: some View {
         VStack(spacing: 16) {
@@ -19,16 +20,18 @@ struct RegistNFCView: View {
 
             Text("사용할 NFC 등록하기")
                 .font(.system(size: 20, weight: .medium))
-            NFCReadButton(viewModel: MainViewModel.shared, axis: .vertical)
-                .frame(width: 100, height: 100)
 
+            NFCReadButton(viewModel: HomeViewModel.shared, axis: .vertical) {
+                viewModel.nfcService.registTag()
+            }
+            .frame(width: 100, height: 100)
 
             Spacer()
 
-            switch viewModel.nfcID.isEmpty {
+            switch viewModel.nfcService.tagInfo == nil {
             case true:
                 Button {
-
+                    viewModel.registUserWithoutNFC()
                 } label: {
                     Text("NFC 등록없이 시작하기")
                         .font(.system(size: 14))
@@ -42,10 +45,8 @@ struct RegistNFCView: View {
                 Text("아래 완료버튼을 눌러 시작하세요.")
             }
 
-
-
             Button {
-                mainViewModel.userID = UUID().uuidString
+                viewModel.registUserWithNFC()
             } label: {
                 ZStack {
                     RoundedRectangle(cornerRadius: 10)

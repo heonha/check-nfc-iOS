@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct WorkingTime: Identifiable {
+struct WorkingTime: Identifiable, Codable {
     let id: UUID
     let startDate: Date
     var startTimeInterval: CGFloat

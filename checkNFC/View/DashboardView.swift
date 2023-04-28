@@ -11,7 +11,8 @@ struct DashboardView: View {
 
     @State var showDashboard = false
 
-    @EnvironmentObject var viewModel: MainViewModel
+    @EnvironmentObject var viewModel: HomeViewModel
+    @ObservedObject var authService = UserAuthService.shared
 
     var body: some View {
         NavigationView {
@@ -44,14 +45,17 @@ struct DashboardView: View {
 
                 Spacer()
 
-                NFCReadButton(viewModel: viewModel)
+                NFCReadButton(viewModel: viewModel) {
+                    
+                }
                     .frame(height: 50)
                     .padding()
             }
             .toolbar {
                 ToolbarItem(placement: .navigationBarLeading) {
                     Button("초기화") {
-                        viewModel.userID = ""
+                        authService.user = nil
+                        UserDefaults.standard.set(nil, forKey: "user")
                     }
                 }
             }

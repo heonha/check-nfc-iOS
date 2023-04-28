@@ -8,32 +8,31 @@
 import SwiftUI
 import CoreNFC
 
+protocol NFCTagReaderDelegate {
+    func settedTag(_ tag: NFCTagInfo)
+}
+
 final class NFCTagReader: NSObject, NFCTagReaderSessionDelegate {
 
+    var delegate: NFCTagReaderDelegate?
 
     func scan() {
         let session = NFCTagReaderSession(pollingOption: [.iso14443, .iso15693], delegate: self)
         session?.begin()
     }
 
-    // Error handling again
-    // 오류 처리
     func tagReaderSession(_ session: NFCTagReaderSession, didInvalidateWithError error: Error) {
 
         print("tagReaderSession")
     }
 
-    // Additionally there's a function that's called when the session begins
-    // 또한 세션이 시작될 때 호출되는 함수가 있습니다.
     func tagReaderSessionDidBecomeActive(_ session: NFCTagReaderSession) {
         print("tagReaderSessionDidBecomeActive")
     }
 
-    // [NFCNDEFMessage]가 아닌 NFCTag 배열이 이 함수로 전달된다는 점에 유의하십시오.
     func tagReaderSession(_ session: NFCTagReaderSession, didDetect tags: [NFCTag]) {
         print("tagReaderSession")
 
-        // 중복 태그 감지 방지
         if tags.count > 1 {
             let retryInterval = DispatchTimeInterval.milliseconds(500)
             session.alertMessage = "2개 이상의 태그가 접촉되었습니다. 다시 시도해주세요."
@@ -43,42 +42,68 @@ final class NFCTagReader: NSObject, NFCTagReaderSessionDelegate {
             return
         }
 
-        // 태그 가져오기
-        let tag = tags.first!
-        session.connect(to: tag) { error in
-            guard error == nil else {
-                session.alertMessage = "에러 발생: \(error!.localizedDescription)"
-                session.invalidate()
-                return
+        if let tag = tags.first {
+            session.connect(to: tag) { error in
+                if let error = error {
+                    session.alertMessage = "에러 발생: \(error.localizedDescription)"
+                    session.invalidate()
+                    return
+                }
+
+                self.checkNFCType(tag) { result in
+                    switch result {
+                    case .success(let tagInfo):
+                        print(tagInfo)
+
+                        self.delegate?.settedTag(tagInfo)
+
+                        session.alertMessage = "연결 성공!"
+                        session.invalidate()
+                    case .failure(let error):
+                        session.invalidate(errorMessage: error.localizedDescription)
+                    }
+                }
             }
+        } else {
+            return
+        }
 
-            print("태그 연결완료")
+    }
 
-            switch tag {
-            case .miFare(let discoveredTag):
-                print("Got a MiFare tag!", discoveredTag.identifier, discoveredTag.mifareFamily)
-                session.alertMessage = "NFC 태깅 완료!\n(MiFare Tag)"
-                session.invalidate()
-                print("\(discoveredTag.identifier.base64EncodedString())")
-            case .feliCa(let discoveredTag):
-                print("Got a FeliCa tag!", discoveredTag.currentSystemCode, discoveredTag.currentIDm)
-                session.alertMessage = "NFC 태깅 완료!\n(FeliCa Tag)"
-                session.invalidate()
+    func checkNFCType(_ nfcTag: NFCTag, completion: (Result<NFCTagInfo, NFCReadError>) -> ()) {
 
-            case .iso15693(let discoveredTag):
-                print("Got a ISO 15693 tag!", discoveredTag.icManufacturerCode, discoveredTag.icSerialNumber, discoveredTag.identifier)
-                session.alertMessage = "NFC 태깅 완료!\n(ISO 15693 Tag)"
-                session.invalidate()
+        switch nfcTag {
+        case .miFare(let discoveredTag):
+            let tagID = discoveredTag.identifier.base64EncodedString()
+            completion(.success(NFCTagInfo(tagID: tagID, tagType: .MiFare)))
 
-            case .iso7816(let discoveredTag):
-                print("Got a ISO 7816 tag!", discoveredTag.initialSelectedAID, discoveredTag.identifier)
-                session.alertMessage = "NFC 태깅 완료!\n(ISO 7816 Tag)"
-                session.invalidate()
+        case .feliCa(let discoveredTag):
+            let tagID = discoveredTag.currentSystemCode.base64EncodedString()
+            completion(.success(NFCTagInfo(tagID: tagID, tagType: .FeliCa)))
 
-            @unknown default:
-                session.invalidate(errorMessage: "Unsupported tag!")
-            }
+        case .iso15693(let discoveredTag):
+            let tagID = discoveredTag.icSerialNumber.base64EncodedString()
+            completion(.success(NFCTagInfo(tagID: tagID, tagType: .iso15693)))
+
+        case .iso7816(let discoveredTag):
+            print("Got a ISO 7816 tag!", discoveredTag.initialSelectedAID, discoveredTag.identifier)
+            let tagID = discoveredTag.initialSelectedAID
+            completion(.success(NFCTagInfo(tagID: tagID, tagType: .iso7816)))
+
+        @unknown default:
+            completion(.failure(.unknownNFC))
         }
     }
+
 }
 
+enum NFCReadError: Error {
+    case unknownNFC
+}
+
+enum NFCTagType: Codable {
+    case MiFare
+    case FeliCa
+    case iso15693
+    case iso7816
+}

@@ -7,7 +7,7 @@
 
 import Foundation
 
-enum TagInfo {
+enum TagInfo: Codable {
     case nfcTag
     case none
 }

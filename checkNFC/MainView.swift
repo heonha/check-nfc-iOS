@@ -9,10 +9,11 @@ import SwiftUI
 
 struct MainView: View {
 
-    @ObservedObject var viewModel = MainViewModel.shared
+    @ObservedObject var viewModel = HomeViewModel.shared
+    @ObservedObject var authService = UserAuthService.shared
 
     var body: some View {
-        if viewModel.userID.isEmpty {
+        if authService.user == nil {
             RegistContainerView()
         } else {
             DashboardView()

@@ -103,6 +103,7 @@ struct RegistTimeView: View {
                 
                 Spacer()
                 Button {
+                    viewModel.setWorkInfo()
                     coordinator.push(destination: .nfc)
                 } label: {
                     ZStack {

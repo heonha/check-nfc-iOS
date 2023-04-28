@@ -7,16 +7,14 @@
 
 import SwiftUI
 
-final class MainViewModel: ObservableObject {
+enum AppState {
+    case none
 
-    static let shared = MainViewModel()
+}
 
-    @AppStorage("userID") var userID = ""
+class MainViewModel: ObservableObject {
 
-    private init() {
-
-    }
-
-    var nfcReader = NFCNDEFReader.shared
+    @Published var appState: AppState = .none
+    @Published var isLogin: Bool = false
 
 }
