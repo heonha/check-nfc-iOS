@@ -11,14 +11,26 @@ class HomeViewModel: MainViewModel {
 
     static let shared = HomeViewModel()
 
-    @EnvironmentObject var authService: UserAuthService
+    @ObservedObject private var authService = UserAuthService.shared
 
     private override init() {
         super.init()
     }
 
+
+    func getUserData() -> UserInfo? {
+        return authService.userSession
+    }
+
     func checkNFC() {
 
     }
+
+
+    func resetUserSession() {
+        authService.userSession = nil
+        authService.userData = nil
+    }
+
 
 }

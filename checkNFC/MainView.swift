@@ -23,6 +23,7 @@ struct MainView: View {
             }
         }
         .onAppear {
+            // MARK: Debugging
             print("USER: \(authService.userSession?.id)")
             if let userData = authService.userData {
                 let user = try? JSONDecoder().decode(UserInfo.self, from: userData)

@@ -33,12 +33,14 @@ struct RegistNFCView: View {
             Button {
                 viewModel.registUserWithoutNFC()
             } label: {
-                Text("NFC 등록없이 시작하기")
+                Text("NFC태그가 없으신가요? ")
                     .font(.system(size: 14))
+                    .foregroundColor(.secondary)
+                + Text("NFC없이 시작하기")
+                    .font(.system(size: 15, weight: .semibold))
                     .foregroundColor(.secondary)
             }
             .padding(.bottom)
-
 
             Button {
                 viewModel.registUserWithNFC()

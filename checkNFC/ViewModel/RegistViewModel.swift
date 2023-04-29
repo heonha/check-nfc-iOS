@@ -18,7 +18,6 @@ class RegistViewModel: MainViewModel, NFCTagReaderDelegate {
     var nfcTagInfo: NFCTagInfo?
     var workInfo: WorkInfo?
     var tagInfo: TagInfo = .none
-    var userInfo: UserInfo?
 
     override init() {
         super.init()
@@ -34,27 +33,8 @@ class RegistViewModel: MainViewModel, NFCTagReaderDelegate {
 
     func registUserWithNFC() {
         self.tagInfo = .nfcTag
-        guard let workInfo = workInfo else {
-            print("workInfo is nil")
-            return
-        }
-
-        var user: UserInfo?
-
-        if nfcTagInfo == nil {
-            user = UserInfo(id: UUID().uuidString, name: name, workInfo: workInfo, workTimes: nil, tagInfo: tagInfo)
-        } else {
-            user = UserInfo(id: UUID().uuidString, name: name, workInfo: workInfo, workTimes: nil, tagInfo: tagInfo, nfcInfo: nfcTagInfo)
-        }
-        self.userInfo = user
-
-        do {
-            let encodedUserData = try JSONEncoder().encode(user)
-            UserAuthService.shared.userData = encodedUserData
-        } catch {
-            print("UserData Encode Error: \(error.localizedDescription)")
-            return
-        }
+   
+        UserAuthService.shared.registUser(name: name, workInfo: workInfo, tagInfo: tagInfo, nfcInfo: nfcTagInfo)
         // MARK: 세션 저장하기
 
     }
@@ -66,24 +46,7 @@ class RegistViewModel: MainViewModel, NFCTagReaderDelegate {
             return
         }
 
-        let user = UserInfo(id: UUID().uuidString, name: name, workInfo: workInfo, workTimes: nil, tagInfo: tagInfo)
-        self.userInfo = user
-        UserAuthService.shared.userSession = user
-
-        // MARK: 세션 저장하기
-
-    }
-
-    func setUserInfo() {
-        guard let workInfo = workInfo else {
-            print("workInfo is nil")
-            return
-        }
-
-        let user = UserInfo(id: UUID().uuidString, name: name, workInfo: workInfo, workTimes: nil, tagInfo: tagInfo)
-        self.userInfo = user
-        UserAuthService.shared.userSession = user
-        UserDefaults.standard.setValue(user, forKey: "user")
+        UserAuthService.shared.registUser(name: name, workInfo: workInfo, tagInfo: tagInfo, nfcInfo: nil)
     }
 
     func setWorkInfo(workingTime working: CGFloat, lunchTime lunch: CGFloat) {
@@ -92,14 +55,6 @@ class RegistViewModel: MainViewModel, NFCTagReaderDelegate {
         self.workInfo = WorkInfo(workingTime: workingTime, lunchTime: lunchTime, dinnerTime: nil)
     }
 
-    func saveUserSession(user: UserInfo?) {
-        do {
-            let encodedUserData = try JSONEncoder().encode(user)
-            UserAuthService.shared.userData = encodedUserData
-        } catch {
-            print("UserData Encode Error: \(error.localizedDescription)")
-            return
-        }
-    }
+
 
 }

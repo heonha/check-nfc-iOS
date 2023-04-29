@@ -12,7 +12,6 @@ struct DashboardView: View {
     @State var showDashboard = false
 
     @EnvironmentObject var viewModel: HomeViewModel
-    @ObservedObject var authService = UserAuthService.shared
 
     var body: some View {
         NavigationView {
@@ -58,17 +57,12 @@ struct DashboardView: View {
             .toolbar {
                 ToolbarItem(placement: .navigationBarLeading) {
                     Button("초기화") {
-                        resetUserSession()
+                        viewModel.resetUserSession()
                     }
                 }
             }
 
         }
-    }
-
-    func resetUserSession() {
-        authService.userSession = nil
-        authService.userData = nil
     }
 
     var timeDashboard: some View {
@@ -101,11 +95,12 @@ struct DashboardView: View {
 
     var checkModelList: some View {
         VStack {
-            Text("ID: \(authService.userSession?.id ?? "")")
-            Text("이름: \(authService.userSession?.name ?? "")")
-            Text("TagID: \(authService.userSession?.nfcInfo?.tagID ?? "")")
-            Text("업무시간: \(authService.userSession?.workInfo.workingTime ?? 0.0)")
-            Text("점심시간: \(authService.userSession?.workInfo.lunchTime ?? 0.0)")
+            let session = viewModel.getUserData()
+            Text("ID: \(session?.id ?? "")")
+            Text("이름: \(session?.name ?? "")")
+            Text("TagID: \(session?.nfcInfo?.tagID ?? "")")
+            Text("업무시간: \(session?.workInfo.workingTime ?? 0.0)")
+            Text("점심시간: \(session?.workInfo.lunchTime ?? 0.0)")
         }
     }
 }
