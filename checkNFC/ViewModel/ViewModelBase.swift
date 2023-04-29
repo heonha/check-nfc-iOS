@@ -12,7 +12,7 @@ enum AppState {
 
 }
 
-class MainViewModel: ObservableObject {
+class ViewModelBase: ObservableObject {
 
     @Published var appState: AppState = .none
 

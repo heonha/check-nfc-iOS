@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-class HomeViewModel: MainViewModel {
+class HomeViewModel: ViewModelBase {
 
     static let shared = HomeViewModel()
 

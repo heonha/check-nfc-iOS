@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-class RegistViewModel: MainViewModel, NFCTagReaderDelegate {
+class RegistViewModel: ViewModelBase, NFCTagReaderDelegate {
 
     private let nfcService = NFCTagReader()
 

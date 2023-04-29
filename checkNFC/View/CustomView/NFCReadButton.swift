@@ -15,7 +15,7 @@ struct NFCReadButton: View {
         case vertical
     }
 
-    @StateObject var viewModel: MainViewModel
+    @StateObject var viewModel: ViewModelBase
 
 
     var axis: StackAxis = .horizontal

@@ -24,7 +24,7 @@
 		397A466A29EF8C9D008AA4FF /* TagInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 397A466929EF8C9D008AA4FF /* TagInfo.swift */; };
 		397A466C29EF8CAC008AA4FF /* NFCTagInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 397A466B29EF8CAC008AA4FF /* NFCTagInfo.swift */; };
 		39AED2C429FBE5920096CA09 /* Notification.Name.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39AED2C329FBE5920096CA09 /* Notification.Name.swift */; };
-		39D92BB629D3E051000F9104 /* MainViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39D92BB529D3E051000F9104 /* MainViewModel.swift */; };
+		39D92BB629D3E051000F9104 /* ViewModelBase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39D92BB529D3E051000F9104 /* ViewModelBase.swift */; };
 		39D92BB829D3F67A000F9104 /* NFCReadButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39D92BB729D3F67A000F9104 /* NFCReadButton.swift */; };
 		39D92BBB29D41E69000F9104 /* NFCTagReader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39D92BBA29D41E69000F9104 /* NFCTagReader.swift */; };
 		39D92BC329D42C5D000F9104 /* DetailDashboardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39D92BC229D42C5D000F9104 /* DetailDashboardView.swift */; };
@@ -58,7 +58,7 @@
 		39AED2C329FBE5920096CA09 /* Notification.Name.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Notification.Name.swift; sourceTree = "<group>"; };
 		39D92BAE29D3D3E1000F9104 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		39D92BAF29D3D413000F9104 /* checkNFC.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = checkNFC.entitlements; sourceTree = "<group>"; };
-		39D92BB529D3E051000F9104 /* MainViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewModel.swift; sourceTree = "<group>"; };
+		39D92BB529D3E051000F9104 /* ViewModelBase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModelBase.swift; sourceTree = "<group>"; };
 		39D92BB729D3F67A000F9104 /* NFCReadButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NFCReadButton.swift; sourceTree = "<group>"; };
 		39D92BBA29D41E69000F9104 /* NFCTagReader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NFCTagReader.swift; sourceTree = "<group>"; };
 		39D92BC229D42C5D000F9104 /* DetailDashboardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailDashboardView.swift; sourceTree = "<group>"; };
@@ -212,7 +212,7 @@
 		39F0455729D3306400F4323F /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
-				39D92BB529D3E051000F9104 /* MainViewModel.swift */,
+				39D92BB529D3E051000F9104 /* ViewModelBase.swift */,
 				39D92BC729D43EE5000F9104 /* RegistViewModel.swift */,
 				39F1BB5D29FA29A900BFF6C5 /* HomeViewModel.swift */,
 			);
@@ -314,7 +314,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				39D92BB629D3E051000F9104 /* MainViewModel.swift in Sources */,
+				39D92BB629D3E051000F9104 /* ViewModelBase.swift in Sources */,
 				395D776429F27E08002D9809 /* MainView.swift in Sources */,
 				39F1BB5E29FA29A900BFF6C5 /* HomeViewModel.swift in Sources */,
 				397A466429EF84E4008AA4FF /* UserInfo.swift in Sources */,
