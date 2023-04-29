@@ -12,6 +12,7 @@ struct RegistNameView: View {
     @EnvironmentObject var viewModel: RegistViewModel
     @StateObject var coordinator = Coordinator<RegistDestination>(destination: .none)
 
+    @State var name = ""
     @State var isSetName = false
 
     var body: some View {
@@ -26,7 +27,7 @@ struct RegistNameView: View {
                 ZStack {
                     RoundedRectangle(cornerRadius: 10)
                         .fill(Color.init(uiColor: .secondarySystemFill))
-                    TextField("메인화면에 보여질 이름", text: $viewModel.name)
+                    TextField("메인화면에 보여질 이름", text: $name)
                         .autocorrectionDisabled()
                         .textInputAutocapitalization(.never)
                         .textCase(.none)
@@ -37,9 +38,10 @@ struct RegistNameView: View {
                 Spacer()
 
                 Button {
-                    if viewModel.name.isEmpty {
+                    if name.isEmpty {
                         isSetName = true
                     } else {
+                        viewModel.setName(name: name)
                         coordinator.push(destination: .time)
                     }
                 } label: {

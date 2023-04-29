@@ -23,7 +23,7 @@ struct RegistNFCView: View {
                 .font(.system(size: 20, weight: .medium))
 
             NFCReadButton(viewModel: HomeViewModel.shared, axis: .vertical) {
-                viewModel.nfcService.registTag()
+                viewModel.registTag()
             }
             .frame(width: 100, height: 100)
 
@@ -31,7 +31,7 @@ struct RegistNFCView: View {
 
 
             Button {
-                viewModel.registUserWithoutNFC()
+                viewModel.registUser(withTag: .nfcTag)
             } label: {
                 Text("NFC태그가 없으신가요? ")
                     .font(.system(size: 14))
@@ -43,7 +43,7 @@ struct RegistNFCView: View {
             .padding(.bottom)
 
             Button {
-                viewModel.registUserWithNFC()
+                viewModel.registUser(withTag: .none)
             } label: {
                 ZStack {
                     RoundedRectangle(cornerRadius: 10)

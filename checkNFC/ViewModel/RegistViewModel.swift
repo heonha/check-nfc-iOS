@@ -9,15 +9,14 @@ import SwiftUI
 
 class RegistViewModel: MainViewModel, NFCTagReaderDelegate {
 
-    let nfcService = NFCTagReader()
+    private let nfcService = NFCTagReader()
 
-    var name: String = ""
-    var workingTime = 8.0
-    var lunchTime = 1.0
-
-    var nfcTagInfo: NFCTagInfo?
-    var workInfo: WorkInfo?
-    var tagInfo: TagInfo = .none
+    private var name: String = ""
+    private var workingTime = 8.0
+    private var lunchTime = 1.0
+    private var nfcTagInfo: NFCTagInfo?
+    private var workInfo: WorkInfo?
+    private var tagInfo: TagInfo = .none
 
     override init() {
         super.init()
@@ -31,22 +30,17 @@ class RegistViewModel: MainViewModel, NFCTagReaderDelegate {
         }
     }
 
-    func registUserWithNFC() {
-        self.tagInfo = .nfcTag
-   
-        UserAuthService.shared.registUser(name: name, workInfo: workInfo, tagInfo: tagInfo, nfcInfo: nfcTagInfo)
-        // MARK: 세션 저장하기
-
+    func setName(name: String) {
+        self.name = name
     }
 
-    func registUserWithoutNFC() {
-        self.tagInfo = .none
-        guard let workInfo = workInfo else {
-            print("workInfo is nil")
-            return
-        }
+    func registTag() {
+        self.nfcService.scan()
+    }
 
-        UserAuthService.shared.registUser(name: name, workInfo: workInfo, tagInfo: tagInfo, nfcInfo: nil)
+    func registUser(withTag tagInfo: TagInfo) {
+        self.tagInfo = .nfcTag
+        UserAuthService.shared.registUser(name: name, workInfo: workInfo, tagInfo: tagInfo, nfcInfo: nfcTagInfo)
     }
 
     func setWorkInfo(workingTime working: CGFloat, lunchTime lunch: CGFloat) {
@@ -54,7 +48,5 @@ class RegistViewModel: MainViewModel, NFCTagReaderDelegate {
         self.lunchTime = lunch
         self.workInfo = WorkInfo(workingTime: workingTime, lunchTime: lunchTime, dinnerTime: nil)
     }
-
-
 
 }
