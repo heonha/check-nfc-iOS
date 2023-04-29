@@ -16,14 +16,22 @@ final class NFCTagReader: NSObject, NFCTagReaderSessionDelegate {
 
     var delegate: NFCTagReaderDelegate?
 
+    var tagInfo: NFCTagInfo?
+
     func scan() {
         let session = NFCTagReaderSession(pollingOption: [.iso14443, .iso15693], delegate: self)
         session?.begin()
     }
 
-    func tagReaderSession(_ session: NFCTagReaderSession, didInvalidateWithError error: Error) {
 
-        print("tagReaderSession")
+    func registTag() {
+        print("NFC 등록 시작")
+        self.scan()
+    }
+
+
+    func tagReaderSession(_ session: NFCTagReaderSession, didInvalidateWithError error: Error) {
+        print("didInvalidateWithError")
     }
 
     func tagReaderSessionDidBecomeActive(_ session: NFCTagReaderSession) {
@@ -31,7 +39,7 @@ final class NFCTagReader: NSObject, NFCTagReaderSessionDelegate {
     }
 
     func tagReaderSession(_ session: NFCTagReaderSession, didDetect tags: [NFCTag]) {
-        print("tagReaderSession")
+        print("Tag 감지 시작")
 
         if tags.count > 1 {
             let retryInterval = DispatchTimeInterval.milliseconds(500)
@@ -43,6 +51,9 @@ final class NFCTagReader: NSObject, NFCTagReaderSessionDelegate {
         }
 
         if let tag = tags.first {
+
+            print("Tag를 검사합니다.")
+
             session.connect(to: tag) { error in
                 if let error = error {
                     session.alertMessage = "에러 발생: \(error.localizedDescription)"
@@ -50,16 +61,26 @@ final class NFCTagReader: NSObject, NFCTagReaderSessionDelegate {
                     return
                 }
 
+                print("Tag에 연결 됨")
+
                 self.checkNFCType(tag) { result in
                     switch result {
                     case .success(let tagInfo):
+                        print("Tag가 검증되었습니다.")
                         print(tagInfo)
 
+                        self.tagInfo = tagInfo
                         self.delegate?.settedTag(tagInfo)
 
                         session.alertMessage = "연결 성공!"
                         session.invalidate()
+
+                        print("등록된 Tag 확인 \(self.tagInfo)")
+                        print("Tag가 해제되었습니다.")
+
                     case .failure(let error):
+                        print("태그 검증 실패")
+
                         session.invalidate(errorMessage: error.localizedDescription)
                     }
                 }

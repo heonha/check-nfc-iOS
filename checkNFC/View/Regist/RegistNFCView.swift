@@ -13,6 +13,7 @@ struct RegistNFCView: View {
     @StateObject var coordinator = Coordinator<RegistDestination>(destination: .none)
     @ObservedObject var mainViewModel = HomeViewModel.shared
 
+    @State var isSetNFC = false // NFC가 정상 등록 된 경우에만 변경되야함
 
     var body: some View {
         VStack(spacing: 16) {
@@ -28,22 +29,16 @@ struct RegistNFCView: View {
 
             Spacer()
 
-            switch viewModel.nfcService.tagInfo == nil {
-            case true:
-                Button {
-                    viewModel.registUserWithoutNFC()
-                } label: {
-                    Text("NFC 등록없이 시작하기")
-                        .font(.system(size: 14))
-                        .foregroundColor(.secondary)
-                }
-                .padding(.bottom)
-            case false:
-                Text("NFC 태그 등록완료")
-                    .foregroundColor(.green)
-                    .font(.system(size: 20, weight: .bold))
-                Text("아래 완료버튼을 눌러 시작하세요.")
+
+            Button {
+                viewModel.registUserWithoutNFC()
+            } label: {
+                Text("NFC 등록없이 시작하기")
+                    .font(.system(size: 14))
+                    .foregroundColor(.secondary)
             }
+            .padding(.bottom)
+
 
             Button {
                 viewModel.registUserWithNFC()
@@ -51,6 +46,7 @@ struct RegistNFCView: View {
                 ZStack {
                     RoundedRectangle(cornerRadius: 10)
                         .fill(Color.init(uiColor: .systemBlue))
+
                     Text("완료")
                         .foregroundColor(.init(uiColor: .systemBackground))
                         .font(.system(size: 18, weight: .medium))

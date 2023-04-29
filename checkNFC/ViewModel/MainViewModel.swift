@@ -15,6 +15,5 @@ enum AppState {
 class MainViewModel: ObservableObject {
 
     @Published var appState: AppState = .none
-    @Published var isLogin: Bool = false
 
 }

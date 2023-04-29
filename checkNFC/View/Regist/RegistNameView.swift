@@ -12,6 +12,8 @@ struct RegistNameView: View {
     @EnvironmentObject var viewModel: RegistViewModel
     @StateObject var coordinator = Coordinator<RegistDestination>(destination: .none)
 
+    @State var isSetName = false
+
     var body: some View {
         ZStack {
             coordinator.navigationLinkSection()
@@ -35,7 +37,11 @@ struct RegistNameView: View {
                 Spacer()
 
                 Button {
-                    coordinator.push(destination: .time)
+                    if viewModel.name.isEmpty {
+                        isSetName = true
+                    } else {
+                        coordinator.push(destination: .time)
+                    }
                 } label: {
                     ZStack {
                         RoundedRectangle(cornerRadius: 10)
@@ -47,6 +53,14 @@ struct RegistNameView: View {
                     }
                 }
                 .frame(height: 40)
+                .alert("이름 확인", isPresented: $isSetName) {
+                    Button("확인") {
+                        return
+                    }
+                } message: {
+                    Text("앱에서 사용할 이름을 입력해주세요.")
+                }
+
             }
             .padding()
         }

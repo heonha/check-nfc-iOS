@@ -18,9 +18,11 @@ struct DashboardView: View {
         NavigationView {
             VStack {
                 Spacer()
+
                 VStack(spacing: 8) {
                     Text("Ive 님의 오늘 기록")
                         .font(.system(size: 24, weight: .bold))
+
                     Text("2023년 3월 28일 (화)")
                         .font(.system(size: 14))
                         .foregroundColor(.secondary)
@@ -43,6 +45,8 @@ struct DashboardView: View {
                 Divider()
                     .padding()
 
+                checkModelList
+
                 Spacer()
 
                 NFCReadButton(viewModel: viewModel) {
@@ -54,13 +58,17 @@ struct DashboardView: View {
             .toolbar {
                 ToolbarItem(placement: .navigationBarLeading) {
                     Button("초기화") {
-                        authService.user = nil
-                        UserDefaults.standard.set(nil, forKey: "user")
+                        resetUserSession()
                     }
                 }
             }
 
         }
+    }
+
+    func resetUserSession() {
+        authService.userSession = nil
+        authService.userData = nil
     }
 
     var timeDashboard: some View {
@@ -70,9 +78,9 @@ struct DashboardView: View {
             VStack(spacing: 8) {
                 Text("출근시간")
                     .font(.system(size: 20, weight: .bold))
+
                 Text("AM10:00")
                     .font(.system(size: 24, weight: .medium))
-
             }
 
             Spacer()
@@ -89,6 +97,16 @@ struct DashboardView: View {
 
         }
         .foregroundColor(.init(uiColor: .label))
+    }
+
+    var checkModelList: some View {
+        VStack {
+            Text("ID: \(authService.userSession?.id ?? "")")
+            Text("이름: \(authService.userSession?.name ?? "")")
+            Text("TagID: \(authService.userSession?.nfcInfo?.tagID ?? "")")
+            Text("업무시간: \(authService.userSession?.workInfo.workingTime ?? 0.0)")
+            Text("점심시간: \(authService.userSession?.workInfo.lunchTime ?? 0.0)")
+        }
     }
 }
 

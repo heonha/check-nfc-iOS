@@ -11,11 +11,24 @@ class UserAuthService: ObservableObject {
 
     static let shared = UserAuthService()
 
-    @Published var user: UserInfo?
+    @Published var userSession: UserInfo? = nil
+    @AppStorage("user") var userData: Data? {
+        didSet {
+            reloadUserData()
+        }
+    }
 
-    private init() {
-        if let userData = UserDefaults.standard.value(forKey: "user") as? UserInfo {
-            self.user = userData
+    init() {
+        if let storedData = userData {
+            let user = try? JSONDecoder().decode(UserInfo.self, from: storedData)
+            self.userSession = user
+        }
+    }
+
+    func reloadUserData() {
+        if let storedData = userData {
+            let user = try? JSONDecoder().decode(UserInfo.self, from: storedData)
+            self.userSession = user
         }
     }
 

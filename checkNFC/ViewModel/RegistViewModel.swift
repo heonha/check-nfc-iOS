@@ -7,19 +7,30 @@
 
 import SwiftUI
 
-class RegistViewModel: ObservableObject {
+class RegistViewModel: MainViewModel, NFCTagReaderDelegate {
 
-    @Published private var model = OnboardingModel()
-    let nfcService = NFCManageService()
+    let nfcService = NFCTagReader()
 
     var name: String = ""
     var workingTime = 8.0
     var lunchTime = 1.0
 
-    private var workInfo: WorkInfo?
-    private var tagInfo: TagInfo = .none
-    @Published var userInfo: UserInfo?
+    var nfcTagInfo: NFCTagInfo?
+    var workInfo: WorkInfo?
+    var tagInfo: TagInfo = .none
+    var userInfo: UserInfo?
 
+    override init() {
+        super.init()
+        nfcService.delegate = self
+    }
+
+    func settedTag(_ tag: NFCTagInfo) {
+        print("Tag Setted: \(tag.tagID)")
+        DispatchQueue.main.async {
+            self.nfcTagInfo = tag
+        }
+    }
 
     func registUserWithNFC() {
         self.tagInfo = .nfcTag
@@ -28,16 +39,23 @@ class RegistViewModel: ObservableObject {
             return
         }
 
-        let user = UserInfo(id: UUID().uuidString, name: name, workInfo: workInfo, workTimes: nil, tagInfo: tagInfo)
+        var user: UserInfo?
+
+        if nfcTagInfo == nil {
+            user = UserInfo(id: UUID().uuidString, name: name, workInfo: workInfo, workTimes: nil, tagInfo: tagInfo)
+        } else {
+            user = UserInfo(id: UUID().uuidString, name: name, workInfo: workInfo, workTimes: nil, tagInfo: tagInfo, nfcInfo: nfcTagInfo)
+        }
         self.userInfo = user
-        UserAuthService.shared.user = user
 
         do {
-            let userData = try JSONEncoder().encode(user)
-            UserDefaults.standard.set(userData, forKey: "user")
+            let encodedUserData = try JSONEncoder().encode(user)
+            UserAuthService.shared.userData = encodedUserData
         } catch {
-            print("Failed to save user data: \(error.localizedDescription)")
+            print("UserData Encode Error: \(error.localizedDescription)")
+            return
         }
+        // MARK: 세션 저장하기
 
     }
 
@@ -50,14 +68,9 @@ class RegistViewModel: ObservableObject {
 
         let user = UserInfo(id: UUID().uuidString, name: name, workInfo: workInfo, workTimes: nil, tagInfo: tagInfo)
         self.userInfo = user
-        UserAuthService.shared.user = user
+        UserAuthService.shared.userSession = user
 
-        do {
-            let userData = try JSONEncoder().encode(user)
-            UserDefaults.standard.set(userData, forKey: "user")
-        } catch {
-            print("Failed to save user data: \(error.localizedDescription)")
-        }
+        // MARK: 세션 저장하기
 
     }
 
@@ -69,12 +82,24 @@ class RegistViewModel: ObservableObject {
 
         let user = UserInfo(id: UUID().uuidString, name: name, workInfo: workInfo, workTimes: nil, tagInfo: tagInfo)
         self.userInfo = user
-        UserAuthService.shared.user = user
+        UserAuthService.shared.userSession = user
         UserDefaults.standard.setValue(user, forKey: "user")
     }
 
-    func setWorkInfo() {
+    func setWorkInfo(workingTime working: CGFloat, lunchTime lunch: CGFloat) {
+        self.workingTime = working
+        self.lunchTime = lunch
         self.workInfo = WorkInfo(workingTime: workingTime, lunchTime: lunchTime, dinnerTime: nil)
+    }
+
+    func saveUserSession(user: UserInfo?) {
+        do {
+            let encodedUserData = try JSONEncoder().encode(user)
+            UserAuthService.shared.userData = encodedUserData
+        } catch {
+            print("UserData Encode Error: \(error.localizedDescription)")
+            return
+        }
     }
 
 }

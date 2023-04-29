@@ -13,12 +13,23 @@ struct MainView: View {
     @ObservedObject var authService = UserAuthService.shared
 
     var body: some View {
-        if authService.user == nil {
-            RegistContainerView()
-        } else {
-            DashboardView()
-                .environmentObject(viewModel)
+        ZStack {
+
+            if authService.userData == nil {
+                RegistContainerView()
+            } else {
+                DashboardView()
+                    .environmentObject(viewModel)
+            }
         }
+        .onAppear {
+            print("USER: \(authService.userSession?.id)")
+            if let userData = authService.userData {
+                let user = try? JSONDecoder().decode(UserInfo.self, from: userData)
+                print(user)
+            }
+        }
+
     }
 }
 
