@@ -6,9 +6,8 @@
 //
 
 import Foundation
-import CoreNFC
 
-struct NFCTagInfo {
+struct NFCTagInfo: Codable {
     let tagID: String
-    let tagType: NFCNDEFTag
+    let tagType: NFCTagType
 }

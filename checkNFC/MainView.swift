@@ -9,15 +9,28 @@ import SwiftUI
 
 struct MainView: View {
 
-    @ObservedObject var viewModel = MainViewModel.shared
+    @ObservedObject var viewModel = HomeViewModel.shared
+    @ObservedObject var authService = UserAuthService.shared
 
     var body: some View {
-        if viewModel.userID.isEmpty {
-            RegistContainerView()
-        } else {
-            DashboardView()
-                .environmentObject(viewModel)
+        ZStack {
+
+            if authService.userData == nil {
+                RegistContainerView()
+            } else {
+                DashboardView()
+                    .environmentObject(viewModel)
+            }
         }
+        .onAppear {
+            // MARK: Debugging
+            print("USER: \(authService.userSession?.id)")
+            if let userData = authService.userData {
+                let user = try? JSONDecoder().decode(UserInfo.self, from: userData)
+                print(user)
+            }
+        }
+
     }
 }
 

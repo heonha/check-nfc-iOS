@@ -7,12 +7,12 @@
 
 import Foundation
 
-// UserData.swift
-struct UserData: Identifiable {
-    let id: UUID
+struct UserInfo: Identifiable, Codable {
+    let id: String
     let name: String
     let workInfo: WorkInfo
-    let workTimes: [WorkingTime]
+    let workTimes: [WorkingTime]?
     let tagInfo: TagInfo
     var nfcInfo: NFCTagInfo?
 }
+

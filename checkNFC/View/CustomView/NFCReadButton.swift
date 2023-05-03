@@ -15,13 +15,16 @@ struct NFCReadButton: View {
         case vertical
     }
 
-    @StateObject var viewModel: MainViewModel
+    @StateObject var viewModel: ViewModelBase
+
 
     var axis: StackAxis = .horizontal
 
+    var action: () -> ()
+
     var body: some View {
         Button {
-            viewModel.nfcReader.scan()
+            action()
         } label: {
             ZStack {
                 RoundedRectangle(cornerRadius: 8)
@@ -59,6 +62,8 @@ struct NFCReadButton: View {
 
 struct NFCReadButton_Previews: PreviewProvider {
     static var previews: some View {
-        NFCReadButton(viewModel: MainViewModel.shared)
+        NFCReadButton(viewModel: HomeViewModel.shared) {
+
+        }
     }
 }

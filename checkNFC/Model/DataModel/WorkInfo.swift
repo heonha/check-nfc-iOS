@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct WorkInfo {
+struct WorkInfo: Codable {
     let workingTime: CGFloat
     let lunchTime: CGFloat
     let dinnerTime: CGFloat?

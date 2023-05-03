@@ -12,6 +12,9 @@ struct RegistTimeView: View {
     @EnvironmentObject var viewModel: RegistViewModel
     @StateObject var coordinator = Coordinator<RegistDestination>(destination: .none)
 
+    @State var workingTime: CGFloat = 8.0
+    @State var lunchTime: CGFloat = 1.0
+
     var body: some View {
         
         ZStack {
@@ -27,7 +30,7 @@ struct RegistTimeView: View {
                     Text("근무시간")
                         .font(.system(size: 22, weight: .medium))
                     Button {
-                        viewModel.workingTime -= 0.5
+                        workingTime -= 0.5
                     } label: {
                         ZStack {
                             Circle()
@@ -39,13 +42,13 @@ struct RegistTimeView: View {
                     }
                     .frame(height: 30)
                     
-                    Text(String(format: "%.1f", viewModel.workingTime))
+                    Text(String(format: "%.1f", workingTime))
                         .font(.system(size: 22, weight: .bold))
                     + Text("시간")
                         .font(.system(size: 20, weight: .medium))
                     
                     Button {
-                        viewModel.workingTime += 0.5
+                        workingTime += 0.5
                     } label: {
                         ZStack {
                             Circle()
@@ -65,7 +68,7 @@ struct RegistTimeView: View {
                         .font(.system(size: 22, weight: .medium))
                     
                     Button {
-                        viewModel.lunchTime -= 0.5
+                        lunchTime -= 0.5
                     } label: {
                         ZStack {
                             Circle()
@@ -79,7 +82,7 @@ struct RegistTimeView: View {
                     .frame(height: 30)
                     
                     
-                    Text(String(format: "%.1f", viewModel.lunchTime))
+                    Text(String(format: "%.1f", lunchTime))
                         .font(.system(size: 22, weight: .bold))
                     
                     + Text("시간")
@@ -87,7 +90,7 @@ struct RegistTimeView: View {
                     
                     
                     Button {
-                        viewModel.lunchTime += 0.5
+                        lunchTime += 0.5
                     } label: {
                         ZStack {
                             Circle()
@@ -102,7 +105,9 @@ struct RegistTimeView: View {
                 }
                 
                 Spacer()
+
                 Button {
+                    viewModel.setWorkInfo(workingTime: workingTime, lunchTime: lunchTime)
                     coordinator.push(destination: .nfc)
                 } label: {
                     ZStack {

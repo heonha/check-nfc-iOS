@@ -7,15 +7,47 @@
 
 import SwiftUI
 
-class RegistViewModel: ObservableObject {
+class RegistViewModel: ViewModelBase, NFCTagReaderDelegate {
 
-    @Published private var model = OnboardingModel()
+    private let nfcService = NFCTagReader()
 
-    var startWorkTime: String = ""
-    var endWorkTime: String = ""
-    var name = ""
-    var nfcID = ""
-    var workingTime = 8.0
-    var lunchTime = 1.0
+    private var name: String = ""
+    private var workingTime = 8.0
+    private var lunchTime = 1.0
+    private var nfcTagInfo: NFCTagInfo?
+    private var workInfo: WorkInfo?
+    var tagInfo: TagInfo = .none
+
+    override init() {
+        super.init()
+        nfcService.delegate = self
+    }
+
+    func settedTag(_ tag: NFCTagInfo) {
+        print("Tag Setted: \(tag.tagID)")
+        DispatchQueue.main.async {
+            self.nfcTagInfo = tag
+        }
+    }
+
+    func setName(name: String) {
+        self.name = name
+    }
+
+    func registTag() {
+        self.nfcService.scan()
+    }
+
+    func registUser(withTag tagInfo: TagInfo) {
+        
+        self.tagInfo = .nfcTag
+        UserAuthService.shared.registUser(name: name, workInfo: workInfo, tagInfo: tagInfo, nfcInfo: nfcTagInfo)
+    }
+
+    func setWorkInfo(workingTime working: CGFloat, lunchTime lunch: CGFloat) {
+        self.workingTime = working
+        self.lunchTime = lunch
+        self.workInfo = WorkInfo(workingTime: workingTime, lunchTime: lunchTime, dinnerTime: nil)
+    }
 
 }

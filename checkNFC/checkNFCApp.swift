@@ -14,5 +14,6 @@ struct checkNFCApp: App {
         WindowGroup {
             MainView()
         }
+        
     }
 }
