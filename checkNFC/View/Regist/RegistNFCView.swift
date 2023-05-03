@@ -13,7 +13,7 @@ struct RegistNFCView: View {
     @StateObject var coordinator = Coordinator<RegistDestination>(destination: .none)
     @ObservedObject var mainViewModel = HomeViewModel.shared
 
-    @State var isSetNFC = false // NFC가 정상 등록 된 경우에만 변경되야함
+    @State var showSetNFCAlert = false
 
     var body: some View {
         VStack(spacing: 16) {
@@ -29,9 +29,8 @@ struct RegistNFCView: View {
 
             Spacer()
 
-
             Button {
-                viewModel.registUser(withTag: .nfcTag)
+                viewModel.registUser(withTag: .none)
             } label: {
                 Text("NFC태그가 없으신가요? ")
                     .font(.system(size: 14))
@@ -43,7 +42,11 @@ struct RegistNFCView: View {
             .padding(.bottom)
 
             Button {
-                viewModel.registUser(withTag: .none)
+                if viewModel.tagInfo == .none {
+                    self.showSetNFCAlert.toggle()
+                } else {
+                    viewModel.registUser(withTag: .nfcTag)
+                }
             } label: {
                 ZStack {
                     RoundedRectangle(cornerRadius: 10)
@@ -52,10 +55,26 @@ struct RegistNFCView: View {
                     Text("완료")
                         .foregroundColor(.init(uiColor: .systemBackground))
                         .font(.system(size: 18, weight: .medium))
-
                 }
             }
             .frame(height: 40)
+            .alert("NFC 확인", isPresented: $showSetNFCAlert) {
+                Button {
+                    viewModel.registUser(withTag: .none)
+                } label: {
+                    Text("등록없이 시작하기")
+                }
+
+                Button {
+                    viewModel.registTag()
+                } label: {
+                    Text("NFC 등록하기")
+                }
+
+
+            } message: {
+                Text("NFC Tag가 등록되지 않았어요, NFC 없이 시작할까요?")
+            }
 
         }
         .padding()

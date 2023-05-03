@@ -23,7 +23,6 @@
 		397A466829EF8C93008AA4FF /* WorkInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 397A466729EF8C93008AA4FF /* WorkInfo.swift */; };
 		397A466A29EF8C9D008AA4FF /* TagInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 397A466929EF8C9D008AA4FF /* TagInfo.swift */; };
 		397A466C29EF8CAC008AA4FF /* NFCTagInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 397A466B29EF8CAC008AA4FF /* NFCTagInfo.swift */; };
-		39AED2C429FBE5920096CA09 /* Notification.Name.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39AED2C329FBE5920096CA09 /* Notification.Name.swift */; };
 		39D92BB629D3E051000F9104 /* ViewModelBase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39D92BB529D3E051000F9104 /* ViewModelBase.swift */; };
 		39D92BB829D3F67A000F9104 /* NFCReadButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39D92BB729D3F67A000F9104 /* NFCReadButton.swift */; };
 		39D92BBB29D41E69000F9104 /* NFCTagReader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39D92BBA29D41E69000F9104 /* NFCTagReader.swift */; };
@@ -55,7 +54,6 @@
 		397A466729EF8C93008AA4FF /* WorkInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkInfo.swift; sourceTree = "<group>"; };
 		397A466929EF8C9D008AA4FF /* TagInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagInfo.swift; sourceTree = "<group>"; };
 		397A466B29EF8CAC008AA4FF /* NFCTagInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NFCTagInfo.swift; sourceTree = "<group>"; };
-		39AED2C329FBE5920096CA09 /* Notification.Name.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Notification.Name.swift; sourceTree = "<group>"; };
 		39D92BAE29D3D3E1000F9104 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		39D92BAF29D3D413000F9104 /* checkNFC.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = checkNFC.entitlements; sourceTree = "<group>"; };
 		39D92BB529D3E051000F9104 /* ViewModelBase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModelBase.swift; sourceTree = "<group>"; };
@@ -225,7 +223,6 @@
 				39D92BBA29D41E69000F9104 /* NFCTagReader.swift */,
 				39F1BB5F29FA2ACF00BFF6C5 /* NFCManageService.swift */,
 				39F1BB6129FA2AF100BFF6C5 /* UserAuthService.swift */,
-				39AED2C329FBE5920096CA09 /* Notification.Name.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -333,7 +330,6 @@
 				397A466829EF8C93008AA4FF /* WorkInfo.swift in Sources */,
 				397A466C29EF8CAC008AA4FF /* NFCTagInfo.swift in Sources */,
 				395A602229EC22A5006579FD /* OnboardingModel.swift in Sources */,
-				39AED2C429FBE5920096CA09 /* Notification.Name.swift in Sources */,
 				39F1BB6029FA2ACF00BFF6C5 /* NFCManageService.swift in Sources */,
 				397A466A29EF8C9D008AA4FF /* TagInfo.swift in Sources */,
 				39F0455E29D330BD00F4323F /* DashboardView.swift in Sources */,

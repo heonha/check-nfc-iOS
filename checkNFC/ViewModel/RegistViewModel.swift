@@ -16,7 +16,7 @@ class RegistViewModel: ViewModelBase, NFCTagReaderDelegate {
     private var lunchTime = 1.0
     private var nfcTagInfo: NFCTagInfo?
     private var workInfo: WorkInfo?
-    private var tagInfo: TagInfo = .none
+    var tagInfo: TagInfo = .none
 
     override init() {
         super.init()
@@ -39,6 +39,7 @@ class RegistViewModel: ViewModelBase, NFCTagReaderDelegate {
     }
 
     func registUser(withTag tagInfo: TagInfo) {
+        
         self.tagInfo = .nfcTag
         UserAuthService.shared.registUser(name: name, workInfo: workInfo, tagInfo: tagInfo, nfcInfo: nfcTagInfo)
     }
