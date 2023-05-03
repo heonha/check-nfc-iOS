@@ -34,7 +34,6 @@
 		39F0454F29D3300E00F4323F /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 39F0454E29D3300E00F4323F /* Preview Assets.xcassets */; };
 		39F0455E29D330BD00F4323F /* DashboardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39F0455D29D330BD00F4323F /* DashboardView.swift */; };
 		39F1BB5E29FA29A900BFF6C5 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39F1BB5D29FA29A900BFF6C5 /* HomeViewModel.swift */; };
-		39F1BB6029FA2ACF00BFF6C5 /* NFCManageService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39F1BB5F29FA2ACF00BFF6C5 /* NFCManageService.swift */; };
 		39F1BB6229FA2AF100BFF6C5 /* UserAuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39F1BB6129FA2AF100BFF6C5 /* UserAuthService.swift */; };
 /* End PBXBuildFile section */
 
@@ -69,7 +68,6 @@
 		39F0454E29D3300E00F4323F /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		39F0455D29D330BD00F4323F /* DashboardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardView.swift; sourceTree = "<group>"; };
 		39F1BB5D29FA29A900BFF6C5 /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
-		39F1BB5F29FA2ACF00BFF6C5 /* NFCManageService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NFCManageService.swift; sourceTree = "<group>"; };
 		39F1BB6129FA2AF100BFF6C5 /* UserAuthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserAuthService.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -221,7 +219,6 @@
 			isa = PBXGroup;
 			children = (
 				39D92BBA29D41E69000F9104 /* NFCTagReader.swift */,
-				39F1BB5F29FA2ACF00BFF6C5 /* NFCManageService.swift */,
 				39F1BB6129FA2AF100BFF6C5 /* UserAuthService.swift */,
 			);
 			path = Services;
@@ -330,7 +327,6 @@
 				397A466829EF8C93008AA4FF /* WorkInfo.swift in Sources */,
 				397A466C29EF8CAC008AA4FF /* NFCTagInfo.swift in Sources */,
 				395A602229EC22A5006579FD /* OnboardingModel.swift in Sources */,
-				39F1BB6029FA2ACF00BFF6C5 /* NFCManageService.swift in Sources */,
 				397A466A29EF8C9D008AA4FF /* TagInfo.swift in Sources */,
 				39F0455E29D330BD00F4323F /* DashboardView.swift in Sources */,
 				395D776229F27D11002D9809 /* Destination.swift in Sources */,
