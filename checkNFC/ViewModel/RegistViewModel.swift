@@ -35,7 +35,7 @@ class RegistViewModel: ViewModelBase, NFCTagReaderDelegate {
     }
 
     func registTag() {
-        self.nfcService.scan()
+        self.nfcService.scanTag()
     }
 
     func registUser(withTag tagInfo: TagInfo) {

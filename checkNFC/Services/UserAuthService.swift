@@ -11,12 +11,14 @@ class UserAuthService: ObservableObject {
 
     static let shared = UserAuthService()
 
-    @Published var userSession: UserInfo? = nil
-    @AppStorage("user") var userData: Data? {
+    @Published private var userSession: UserInfo? = nil
+    @AppStorage("user") private var userData: Data? {
         didSet {
             reloadUserSession()
         }
     }
+
+    @Published var isUserSignin = false
 
     init() {
         if let storedData = userData {
@@ -25,10 +27,28 @@ class UserAuthService: ObservableObject {
         }
     }
 
+    func getUserData() -> UserInfo? {
+        if userSession == nil {
+            return nil
+        } else {
+            return userSession
+        }
+    }
+
+    func setUserData(data: Data?) {
+        return self.userData = data
+    }
+
+    func resetSession() {
+        self.userData = nil
+        self.userSession = nil
+    }
+
     func reloadUserSession() {
         if let storedData = userData {
             let user = try? JSONDecoder().decode(UserInfo.self, from: storedData)
             self.userSession = user
+            self.isUserSignin = true
         }
     }
 
