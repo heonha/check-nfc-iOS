@@ -19,10 +19,10 @@ struct DashboardView: View {
                 Spacer()
 
                 VStack(spacing: 8) {
-                    Text("Ive 님의 오늘 기록")
+                    Text("\(viewModel.getUserName()) 님의 오늘 기록")
                         .font(.system(size: 24, weight: .bold))
 
-                    Text("2023년 3월 28일 (화)")
+                    Text(Date().string)
                         .font(.system(size: 14))
                         .foregroundColor(.secondary)
                 }

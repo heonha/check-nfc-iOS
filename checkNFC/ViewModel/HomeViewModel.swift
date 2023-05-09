@@ -17,9 +17,12 @@ class HomeViewModel: ViewModelBase {
         super.init()
     }
 
-
     func getUserData() -> UserInfo? {
         return authService.getUserData()
+    }
+    
+    func getUserName() -> String {
+        return authService.getUserData()?.name ?? ""
     }
 
     func resetUserSession() {

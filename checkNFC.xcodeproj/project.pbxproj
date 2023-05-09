@@ -10,6 +10,7 @@
 		3900F2A229D51DF600C5AB70 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 3900F2A129D51DF600C5AB70 /* SnapKit */; };
 		3921409C2A08EEE400D0F527 /* NFCTagType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3921409B2A08EEE400D0F527 /* NFCTagType.swift */; };
 		3921409E2A08EEF600D0F527 /* NFCReadError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3921409D2A08EEF600D0F527 /* NFCReadError.swift */; };
+		392140A12A0A578300D0F527 /* Date+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 392140A02A0A578300D0F527 /* Date+Extension.swift */; };
 		392EF9A629D57BFA009D6158 /* RegistContainerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 392EF9A529D57BFA009D6158 /* RegistContainerView.swift */; };
 		392EF9A829D57C31009D6158 /* RegistWelcomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 392EF9A729D57C31009D6158 /* RegistWelcomeView.swift */; };
 		392EF9AA29D57C52009D6158 /* RegistNameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 392EF9A929D57C52009D6158 /* RegistNameView.swift */; };
@@ -42,6 +43,7 @@
 /* Begin PBXFileReference section */
 		3921409B2A08EEE400D0F527 /* NFCTagType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NFCTagType.swift; sourceTree = "<group>"; };
 		3921409D2A08EEF600D0F527 /* NFCReadError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NFCReadError.swift; sourceTree = "<group>"; };
+		392140A02A0A578300D0F527 /* Date+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Extension.swift"; sourceTree = "<group>"; };
 		392EF9A529D57BFA009D6158 /* RegistContainerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistContainerView.swift; sourceTree = "<group>"; };
 		392EF9A729D57C31009D6158 /* RegistWelcomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistWelcomeView.swift; sourceTree = "<group>"; };
 		392EF9A929D57C52009D6158 /* RegistNameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistNameView.swift; sourceTree = "<group>"; };
@@ -87,6 +89,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3921409F2A0A577A00D0F527 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				392140A02A0A578300D0F527 /* Date+Extension.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
 		392EF9A229D57BCE009D6158 /* Regist */ = {
 			isa = PBXGroup;
 			children = (
@@ -157,6 +167,7 @@
 		39F0454629D3300D00F4323F /* checkNFC */ = {
 			isa = PBXGroup;
 			children = (
+				3921409F2A0A577A00D0F527 /* Extensions */,
 				39E9160929EFEAE40067892B /* Info.plist */,
 				39D92BAF29D3D413000F9104 /* checkNFC.entitlements */,
 				39F0454729D3300D00F4323F /* checkNFCApp.swift */,
@@ -331,6 +342,7 @@
 				39F0455E29D330BD00F4323F /* DashboardView.swift in Sources */,
 				395D776229F27D11002D9809 /* Destination.swift in Sources */,
 				39F1BB6229FA2AF100BFF6C5 /* UserAuthService.swift in Sources */,
+				392140A12A0A578300D0F527 /* Date+Extension.swift in Sources */,
 				39F0454829D3300D00F4323F /* checkNFCApp.swift in Sources */,
 				392EF9AC29D57D63009D6158 /* RegistTimeView.swift in Sources */,
 			);
