@@ -9,9 +9,9 @@ import SwiftUI
 
 struct DashboardView: View {
 
-    @State var showDashboard = false
+    @State private var showDashboard = false
 
-    @EnvironmentObject var viewModel: HomeViewModel
+    @EnvironmentObject private var viewModel: HomeViewModel
 
     var body: some View {
         NavigationView {
@@ -48,7 +48,7 @@ struct DashboardView: View {
 
                 Spacer()
 
-                NFCReadButton(viewModel: viewModel) {
+                NFCReadButton {
                     
                 }
                     .frame(height: 50)

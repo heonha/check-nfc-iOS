@@ -9,9 +9,9 @@ import SwiftUI
 
 struct RegistNFCView: View {
 
-    @EnvironmentObject var viewModel: RegistViewModel
-    @StateObject var coordinator = Coordinator<RegistDestination>(destination: .none)
-    @ObservedObject var mainViewModel = HomeViewModel.shared
+    @EnvironmentObject private var viewModel: RegistViewModel
+    @StateObject private var coordinator = Coordinator<RegistDestination>(destination: .none)
+    @ObservedObject private var mainViewModel = HomeViewModel.shared
 
     @State var showSetNFCAlert = false
 
