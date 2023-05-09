@@ -115,15 +115,6 @@
 			path = CustomView;
 			sourceTree = "<group>";
 		};
-		395D776A29F2933C002D9809 /* Destination */ = {
-			isa = PBXGroup;
-			children = (
-				395D776129F27D11002D9809 /* Destination.swift */,
-				395D776829F2932B002D9809 /* RegistDestination.swift */,
-			);
-			path = Destination;
-			sourceTree = "<group>";
-		};
 		39DAEB3829EF8D8200AB132B /* DataModel */ = {
 			isa = PBXGroup;
 			children = (
@@ -140,6 +131,8 @@
 			isa = PBXGroup;
 			children = (
 				39E9160A29EFF1160067892B /* Coordinator.swift */,
+				395D776129F27D11002D9809 /* Destination.swift */,
+				395D776829F2932B002D9809 /* RegistDestination.swift */,
 			);
 			path = Coordinator;
 			sourceTree = "<group>";
@@ -169,7 +162,6 @@
 				39F0454729D3300D00F4323F /* checkNFCApp.swift */,
 				395D776329F27E08002D9809 /* MainView.swift */,
 				39E915FE29EF9AD80067892B /* Coordinator */,
-				395D776A29F2933C002D9809 /* Destination */,
 				39F0455829D3306B00F4323F /* Services */,
 				39F0455529D3305600F4323F /* View */,
 				39F0455729D3306400F4323F /* ViewModel */,
