@@ -15,23 +15,15 @@ struct MainView: View {
     var body: some View {
         ZStack {
 
-            if authService.userData == nil {
+            if authService.getUserData() == nil {
                 RegistContainerView()
             } else {
                 DashboardView()
                     .environmentObject(viewModel)
             }
         }
-        .onAppear {
-            // MARK: Debugging
-            print("USER: \(authService.userSession?.id)")
-            if let userData = authService.userData {
-                let user = try? JSONDecoder().decode(UserInfo.self, from: userData)
-                print(user)
-            }
-        }
-
     }
+
 }
 
 struct MainView_Previews: PreviewProvider {

@@ -9,11 +9,11 @@ import SwiftUI
 
 struct RegistTimeView: View {
     
-    @EnvironmentObject var viewModel: RegistViewModel
-    @StateObject var coordinator = Coordinator<RegistDestination>(destination: .none)
+    @EnvironmentObject private var viewModel: RegistViewModel
+    @StateObject private var coordinator = Coordinator<RegistDestination>(destination: .none)
 
-    @State var workingTime: CGFloat = 8.0
-    @State var lunchTime: CGFloat = 1.0
+    @State private var workingTime: CGFloat = 8.0
+    @State private var lunchTime: CGFloat = 1.0
 
     var body: some View {
         

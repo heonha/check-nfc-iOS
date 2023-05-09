@@ -9,7 +9,7 @@ import SwiftUI
 
 struct RegistContainerView: View {
 
-    @StateObject var viewModel = RegistViewModel()
+    @StateObject private var viewModel = RegistViewModel()
 
     var body: some View {
         NavigationView {

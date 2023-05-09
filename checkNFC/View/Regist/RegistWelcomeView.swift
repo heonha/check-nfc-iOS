@@ -9,8 +9,8 @@ import SwiftUI
 
 struct RegistWelcomeView: View {
 
-    @EnvironmentObject var viewModel: RegistViewModel
-    @StateObject var coordinator = Coordinator<RegistDestination>(destination: .none)
+    @EnvironmentObject private var viewModel: RegistViewModel
+    @StateObject private var coordinator = Coordinator<RegistDestination>(destination: .none)
 
     var body: some View {
         ZStack {

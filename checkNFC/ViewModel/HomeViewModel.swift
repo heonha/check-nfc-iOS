@@ -19,17 +19,11 @@ class HomeViewModel: ViewModelBase {
 
 
     func getUserData() -> UserInfo? {
-        return authService.userSession
+        return authService.getUserData()
     }
-
-    func checkNFC() {
-
-    }
-
 
     func resetUserSession() {
-        authService.userSession = nil
-        authService.userData = nil
+        authService.resetSession()
     }
 
 

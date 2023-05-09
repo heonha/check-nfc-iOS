@@ -9,11 +9,11 @@ import SwiftUI
 
 struct RegistNameView: View {
 
-    @EnvironmentObject var viewModel: RegistViewModel
-    @StateObject var coordinator = Coordinator<RegistDestination>(destination: .none)
+    @EnvironmentObject private var viewModel: RegistViewModel
+    @StateObject private var coordinator = Coordinator<RegistDestination>(destination: .none)
 
-    @State var name = ""
-    @State var isSetName = false
+    @State private var name = ""
+    @State private var isSetName = false
 
     var body: some View {
         ZStack {
