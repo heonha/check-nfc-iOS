@@ -14,10 +14,7 @@ struct NFCReadButton: View {
         case horizontal
         case vertical
     }
-
-    @StateObject var viewModel: ViewModelBase
-
-
+    
     var axis: StackAxis = .horizontal
 
     var action: () -> ()
@@ -58,12 +55,4 @@ struct NFCReadButton: View {
         }
     }
 
-}
-
-struct NFCReadButton_Previews: PreviewProvider {
-    static var previews: some View {
-        NFCReadButton(viewModel: HomeViewModel.shared) {
-
-        }
-    }
 }

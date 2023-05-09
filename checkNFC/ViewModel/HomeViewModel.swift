@@ -22,11 +22,6 @@ class HomeViewModel: ViewModelBase {
         return authService.getUserData()
     }
 
-    func checkNFC() {
-
-    }
-
-
     func resetUserSession() {
         authService.resetSession()
     }

@@ -22,7 +22,7 @@ struct RegistNFCView: View {
             Text("사용할 NFC 등록하기")
                 .font(.system(size: 20, weight: .medium))
 
-            NFCReadButton(viewModel: HomeViewModel.shared, axis: .vertical) {
+            NFCReadButton(axis: .vertical) {
                 viewModel.registTag()
             }
             .frame(width: 100, height: 100)

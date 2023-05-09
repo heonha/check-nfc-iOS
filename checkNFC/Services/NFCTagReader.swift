@@ -44,8 +44,7 @@ final class NFCTagReader: NSObject, NFCTagReaderSessionDelegate {
         session?.begin()
     }
 
-    func registTag() {
-        print("NFC 등록 시작")
+    func scanTag() {
         self.scan()
     }
 
