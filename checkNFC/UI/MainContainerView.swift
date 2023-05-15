@@ -1,5 +1,5 @@
 //
-//  MainView.swift
+//  MainContainerView.swift
 //  checkNFC
 //
 //  Created by Heonjin Ha on 2023/04/21.
@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct MainView: View {
+struct MainContainerView: View {
 
     @ObservedObject var viewModel = HomeViewModel.shared
     @ObservedObject var authService = UserAuthService.shared
@@ -18,7 +18,7 @@ struct MainView: View {
             if authService.getUserData() == nil {
                 RegistContainerView()
             } else {
-                DashboardView()
+                HomeView()
                     .environmentObject(viewModel)
             }
         }
@@ -28,6 +28,6 @@ struct MainView: View {
 
 struct MainView_Previews: PreviewProvider {
     static var previews: some View {
-        MainView()
+        MainContainerView()
     }
 }

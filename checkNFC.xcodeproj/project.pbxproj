@@ -16,7 +16,7 @@
 		392EF9AC29D57D63009D6158 /* RegistTimeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 392EF9AB29D57D63009D6158 /* RegistTimeView.swift */; };
 		392EF9AE29D57DA0009D6158 /* RegistNFCView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 392EF9AD29D57DA0009D6158 /* RegistNFCView.swift */; };
 		395D776229F27D11002D9809 /* Destination.swift in Sources */ = {isa = PBXBuildFile; fileRef = 395D776129F27D11002D9809 /* Destination.swift */; };
-		395D776429F27E08002D9809 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 395D776329F27E08002D9809 /* MainView.swift */; };
+		395D776429F27E08002D9809 /* MainContainerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 395D776329F27E08002D9809 /* MainContainerView.swift */; };
 		395D776929F2932B002D9809 /* RegistDestination.swift in Sources */ = {isa = PBXBuildFile; fileRef = 395D776829F2932B002D9809 /* RegistDestination.swift */; };
 		39694FEC29E6D1EC00F2C75C /* SwiftUIViewTester.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39694FEB29E6D1EB00F2C75C /* SwiftUIViewTester.swift */; };
 		397A466429EF84E4008AA4FF /* UserInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 397A466329EF84E4008AA4FF /* UserInfo.swift */; };
@@ -27,13 +27,13 @@
 		39D92BB629D3E051000F9104 /* ViewModelBase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39D92BB529D3E051000F9104 /* ViewModelBase.swift */; };
 		39D92BB829D3F67A000F9104 /* NFCReadButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39D92BB729D3F67A000F9104 /* NFCReadButton.swift */; };
 		39D92BBB29D41E69000F9104 /* NFCTagReader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39D92BBA29D41E69000F9104 /* NFCTagReader.swift */; };
-		39D92BC329D42C5D000F9104 /* DetailDashboardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39D92BC229D42C5D000F9104 /* DetailDashboardView.swift */; };
+		39D92BC329D42C5D000F9104 /* HomeDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39D92BC229D42C5D000F9104 /* HomeDetailView.swift */; };
 		39D92BC829D43EE5000F9104 /* RegistViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39D92BC729D43EE5000F9104 /* RegistViewModel.swift */; };
 		39E9160B29EFF1160067892B /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39E9160A29EFF1160067892B /* Coordinator.swift */; };
 		39F0454829D3300D00F4323F /* checkNFCApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39F0454729D3300D00F4323F /* checkNFCApp.swift */; };
 		39F0454C29D3300E00F4323F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 39F0454B29D3300E00F4323F /* Assets.xcassets */; };
 		39F0454F29D3300E00F4323F /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 39F0454E29D3300E00F4323F /* Preview Assets.xcassets */; };
-		39F0455E29D330BD00F4323F /* DashboardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39F0455D29D330BD00F4323F /* DashboardView.swift */; };
+		39F0455E29D330BD00F4323F /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39F0455D29D330BD00F4323F /* HomeView.swift */; };
 		39F1BB5E29FA29A900BFF6C5 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39F1BB5D29FA29A900BFF6C5 /* HomeViewModel.swift */; };
 		39F1BB6229FA2AF100BFF6C5 /* UserAuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39F1BB6129FA2AF100BFF6C5 /* UserAuthService.swift */; };
 /* End PBXBuildFile section */
@@ -47,7 +47,7 @@
 		392EF9AB29D57D63009D6158 /* RegistTimeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistTimeView.swift; sourceTree = "<group>"; };
 		392EF9AD29D57DA0009D6158 /* RegistNFCView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistNFCView.swift; sourceTree = "<group>"; };
 		395D776129F27D11002D9809 /* Destination.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Destination.swift; sourceTree = "<group>"; };
-		395D776329F27E08002D9809 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
+		395D776329F27E08002D9809 /* MainContainerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainContainerView.swift; sourceTree = "<group>"; };
 		395D776829F2932B002D9809 /* RegistDestination.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistDestination.swift; sourceTree = "<group>"; };
 		39694FEB29E6D1EB00F2C75C /* SwiftUIViewTester.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftUIViewTester.swift; sourceTree = "<group>"; };
 		397A466329EF84E4008AA4FF /* UserInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfo.swift; sourceTree = "<group>"; };
@@ -60,7 +60,7 @@
 		39D92BB529D3E051000F9104 /* ViewModelBase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModelBase.swift; sourceTree = "<group>"; };
 		39D92BB729D3F67A000F9104 /* NFCReadButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NFCReadButton.swift; sourceTree = "<group>"; };
 		39D92BBA29D41E69000F9104 /* NFCTagReader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NFCTagReader.swift; sourceTree = "<group>"; };
-		39D92BC229D42C5D000F9104 /* DetailDashboardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailDashboardView.swift; sourceTree = "<group>"; };
+		39D92BC229D42C5D000F9104 /* HomeDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeDetailView.swift; sourceTree = "<group>"; };
 		39D92BC729D43EE5000F9104 /* RegistViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistViewModel.swift; sourceTree = "<group>"; };
 		39E9160929EFEAE40067892B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		39E9160A29EFF1160067892B /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
@@ -68,7 +68,7 @@
 		39F0454729D3300D00F4323F /* checkNFCApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = checkNFCApp.swift; sourceTree = "<group>"; };
 		39F0454B29D3300E00F4323F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		39F0454E29D3300E00F4323F /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
-		39F0455D29D330BD00F4323F /* DashboardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardView.swift; sourceTree = "<group>"; };
+		39F0455D29D330BD00F4323F /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		39F1BB5D29FA29A900BFF6C5 /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
 		39F1BB6129FA2AF100BFF6C5 /* UserAuthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserAuthService.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -160,13 +160,14 @@
 			path = User;
 			sourceTree = "<group>";
 		};
-		395996B62A120E4C001BED95 /* Dashboard */ = {
+		395996B62A120E4C001BED95 /* Home */ = {
 			isa = PBXGroup;
 			children = (
-				39F0455D29D330BD00F4323F /* DashboardView.swift */,
-				39D92BC229D42C5D000F9104 /* DetailDashboardView.swift */,
+				39F0455D29D330BD00F4323F /* HomeView.swift */,
+				39D92BC229D42C5D000F9104 /* HomeDetailView.swift */,
+				39F1BB5D29FA29A900BFF6C5 /* HomeViewModel.swift */,
 			);
-			path = Dashboard;
+			path = Home;
 			sourceTree = "<group>";
 		};
 		395D776729F289EF002D9809 /* CustomView */ = {
@@ -233,8 +234,8 @@
 		39F0455529D3305600F4323F /* UI */ = {
 			isa = PBXGroup;
 			children = (
-				395D776329F27E08002D9809 /* MainView.swift */,
-				395996B62A120E4C001BED95 /* Dashboard */,
+				395D776329F27E08002D9809 /* MainContainerView.swift */,
+				395996B62A120E4C001BED95 /* Home */,
 				392EF9A229D57BCE009D6158 /* Regist */,
 				395D776729F289EF002D9809 /* CustomView */,
 			);
@@ -253,7 +254,6 @@
 		39F0455729D3306400F4323F /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
-				39F1BB5D29FA29A900BFF6C5 /* HomeViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -352,7 +352,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				39D92BB629D3E051000F9104 /* ViewModelBase.swift in Sources */,
-				395D776429F27E08002D9809 /* MainView.swift in Sources */,
+				395D776429F27E08002D9809 /* MainContainerView.swift in Sources */,
 				39F1BB5E29FA29A900BFF6C5 /* HomeViewModel.swift in Sources */,
 				397A466429EF84E4008AA4FF /* UserInfo.swift in Sources */,
 				3921409C2A08EEE400D0F527 /* NFCTagType.swift in Sources */,
@@ -366,13 +366,13 @@
 				395D776929F2932B002D9809 /* RegistDestination.swift in Sources */,
 				39694FEC29E6D1EC00F2C75C /* SwiftUIViewTester.swift in Sources */,
 				39D92BC829D43EE5000F9104 /* RegistViewModel.swift in Sources */,
-				39D92BC329D42C5D000F9104 /* DetailDashboardView.swift in Sources */,
+				39D92BC329D42C5D000F9104 /* HomeDetailView.swift in Sources */,
 				392EF9A829D57C31009D6158 /* RegistWelcomeView.swift in Sources */,
 				39D92BBB29D41E69000F9104 /* NFCTagReader.swift in Sources */,
 				397A466829EF8C93008AA4FF /* WorkInfo.swift in Sources */,
 				397A466C29EF8CAC008AA4FF /* NFCTagInfo.swift in Sources */,
 				397A466A29EF8C9D008AA4FF /* TagInfo.swift in Sources */,
-				39F0455E29D330BD00F4323F /* DashboardView.swift in Sources */,
+				39F0455E29D330BD00F4323F /* HomeView.swift in Sources */,
 				395D776229F27D11002D9809 /* Destination.swift in Sources */,
 				39F1BB6229FA2AF100BFF6C5 /* UserAuthService.swift in Sources */,
 				39F0454829D3300D00F4323F /* checkNFCApp.swift in Sources */,
