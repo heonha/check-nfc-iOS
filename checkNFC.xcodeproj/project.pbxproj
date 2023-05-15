@@ -15,7 +15,6 @@
 		392EF9AA29D57C52009D6158 /* RegistNameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 392EF9A929D57C52009D6158 /* RegistNameView.swift */; };
 		392EF9AC29D57D63009D6158 /* RegistTimeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 392EF9AB29D57D63009D6158 /* RegistTimeView.swift */; };
 		392EF9AE29D57DA0009D6158 /* RegistNFCView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 392EF9AD29D57DA0009D6158 /* RegistNFCView.swift */; };
-		395A602229EC22A5006579FD /* OnboardingModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 395A602129EC22A5006579FD /* OnboardingModel.swift */; };
 		395D776229F27D11002D9809 /* Destination.swift in Sources */ = {isa = PBXBuildFile; fileRef = 395D776129F27D11002D9809 /* Destination.swift */; };
 		395D776429F27E08002D9809 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 395D776329F27E08002D9809 /* MainView.swift */; };
 		395D776929F2932B002D9809 /* RegistDestination.swift in Sources */ = {isa = PBXBuildFile; fileRef = 395D776829F2932B002D9809 /* RegistDestination.swift */; };
@@ -47,7 +46,6 @@
 		392EF9A929D57C52009D6158 /* RegistNameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistNameView.swift; sourceTree = "<group>"; };
 		392EF9AB29D57D63009D6158 /* RegistTimeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistTimeView.swift; sourceTree = "<group>"; };
 		392EF9AD29D57DA0009D6158 /* RegistNFCView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistNFCView.swift; sourceTree = "<group>"; };
-		395A602129EC22A5006579FD /* OnboardingModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingModel.swift; sourceTree = "<group>"; };
 		395D776129F27D11002D9809 /* Destination.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Destination.swift; sourceTree = "<group>"; };
 		395D776329F27E08002D9809 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 		395D776829F2932B002D9809 /* RegistDestination.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistDestination.swift; sourceTree = "<group>"; };
@@ -90,10 +88,10 @@
 		392EF9A229D57BCE009D6158 /* Regist */ = {
 			isa = PBXGroup;
 			children = (
+				395996B32A120D9C001BED95 /* Subviews */,
 				392EF9A529D57BFA009D6158 /* RegistContainerView.swift */,
 				395D776829F2932B002D9809 /* RegistDestination.swift */,
 				39D92BC729D43EE5000F9104 /* RegistViewModel.swift */,
-				395996B32A120D9C001BED95 /* Subviews */,
 			);
 			path = Regist;
 			sourceTree = "<group>";
@@ -143,24 +141,40 @@
 			path = Subviews;
 			sourceTree = "<group>";
 		};
+		395996B42A120E23001BED95 /* NFC */ = {
+			isa = PBXGroup;
+			children = (
+				397A466929EF8C9D008AA4FF /* TagInfo.swift */,
+				397A466B29EF8CAC008AA4FF /* NFCTagInfo.swift */,
+			);
+			path = NFC;
+			sourceTree = "<group>";
+		};
+		395996B52A120E30001BED95 /* User */ = {
+			isa = PBXGroup;
+			children = (
+				397A466329EF84E4008AA4FF /* UserInfo.swift */,
+				397A466529EF8C89008AA4FF /* WorkingTime.swift */,
+				397A466729EF8C93008AA4FF /* WorkInfo.swift */,
+			);
+			path = User;
+			sourceTree = "<group>";
+		};
+		395996B62A120E4C001BED95 /* Dashboard */ = {
+			isa = PBXGroup;
+			children = (
+				39F0455D29D330BD00F4323F /* DashboardView.swift */,
+				39D92BC229D42C5D000F9104 /* DetailDashboardView.swift */,
+			);
+			path = Dashboard;
+			sourceTree = "<group>";
+		};
 		395D776729F289EF002D9809 /* CustomView */ = {
 			isa = PBXGroup;
 			children = (
 				39D92BB729D3F67A000F9104 /* NFCReadButton.swift */,
 			);
 			path = CustomView;
-			sourceTree = "<group>";
-		};
-		39DAEB3829EF8D8200AB132B /* DataModel */ = {
-			isa = PBXGroup;
-			children = (
-				397A466329EF84E4008AA4FF /* UserInfo.swift */,
-				397A466529EF8C89008AA4FF /* WorkingTime.swift */,
-				397A466729EF8C93008AA4FF /* WorkInfo.swift */,
-				397A466929EF8C9D008AA4FF /* TagInfo.swift */,
-				397A466B29EF8CAC008AA4FF /* NFCTagInfo.swift */,
-			);
-			path = DataModel;
 			sourceTree = "<group>";
 		};
 		39E915FE29EF9AD80067892B /* Coordinator */ = {
@@ -195,7 +209,6 @@
 				39E9160929EFEAE40067892B /* Info.plist */,
 				39D92BAF29D3D413000F9104 /* checkNFC.entitlements */,
 				39F0454729D3300D00F4323F /* checkNFCApp.swift */,
-				395D776329F27E08002D9809 /* MainView.swift */,
 				395996B02A120CB3001BED95 /* Base */,
 				39E915FE29EF9AD80067892B /* Coordinator */,
 				39F0455829D3306B00F4323F /* Services */,
@@ -220,8 +233,8 @@
 		39F0455529D3305600F4323F /* UI */ = {
 			isa = PBXGroup;
 			children = (
-				39F0455D29D330BD00F4323F /* DashboardView.swift */,
-				39D92BC229D42C5D000F9104 /* DetailDashboardView.swift */,
+				395D776329F27E08002D9809 /* MainView.swift */,
+				395996B62A120E4C001BED95 /* Dashboard */,
 				392EF9A229D57BCE009D6158 /* Regist */,
 				395D776729F289EF002D9809 /* CustomView */,
 			);
@@ -231,8 +244,8 @@
 		39F0455629D3305D00F4323F /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				395A602129EC22A5006579FD /* OnboardingModel.swift */,
-				39DAEB3829EF8D8200AB132B /* DataModel */,
+				395996B52A120E30001BED95 /* User */,
+				395996B42A120E23001BED95 /* NFC */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -358,7 +371,6 @@
 				39D92BBB29D41E69000F9104 /* NFCTagReader.swift in Sources */,
 				397A466829EF8C93008AA4FF /* WorkInfo.swift in Sources */,
 				397A466C29EF8CAC008AA4FF /* NFCTagInfo.swift in Sources */,
-				395A602229EC22A5006579FD /* OnboardingModel.swift in Sources */,
 				397A466A29EF8C9D008AA4FF /* TagInfo.swift in Sources */,
 				39F0455E29D330BD00F4323F /* DashboardView.swift in Sources */,
 				395D776229F27D11002D9809 /* Destination.swift in Sources */,
