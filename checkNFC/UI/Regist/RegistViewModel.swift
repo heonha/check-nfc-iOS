@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-class RegistViewModel: ViewModelBase, NFCTagReaderDelegate {
+class RegistViewModel: ViewModelBase {
 
     private let nfcService = NFCTagReader()
 
@@ -20,7 +20,6 @@ class RegistViewModel: ViewModelBase, NFCTagReaderDelegate {
 
     override init() {
         super.init()
-        nfcService.delegate = self
     }
 
     func settedTag(_ tag: NFCTagInfo) {
