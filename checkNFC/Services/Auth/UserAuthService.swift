@@ -12,21 +12,22 @@ class UserAuthService: ObservableObject {
     static let shared = UserAuthService()
 
     @Published private var userSession: UserInfo? = nil
+    @Published private var isUserSignin = false
     @AppStorage("user") private var userData: Data? {
         didSet {
             reloadUserSession()
         }
     }
 
-    @Published var isUserSignin = false
 
-    init() {
+    private init() {
         if let storedData = userData {
             let user = try? JSONDecoder().decode(UserInfo.self, from: storedData)
             self.userSession = user
         }
     }
 
+    // MARK: Public
     func getUserData() -> UserInfo? {
         if userSession == nil {
             return nil
@@ -35,16 +36,22 @@ class UserAuthService: ObservableObject {
         }
     }
 
-    func setUserData(data: Data?) {
-        return self.userData = data
-    }
-
     func resetSession() {
         self.userData = nil
         self.userSession = nil
     }
 
-    func reloadUserSession() {
+    func setRegistUser(name: String, workInfo: WorkInfo?, tagInfo: TagInfo, nfcInfo: NFCTagInfo?) {
+        registUser(name: name, workInfo: workInfo, tagInfo: tagInfo, nfcInfo: nfcInfo)
+    }
+
+
+    // MARK: Logics
+    private func setUserData(data: Data?) {
+        return self.userData = data
+    }
+
+    private func reloadUserSession() {
         if let storedData = userData {
             let user = try? JSONDecoder().decode(UserInfo.self, from: storedData)
             self.userSession = user
@@ -52,7 +59,7 @@ class UserAuthService: ObservableObject {
         }
     }
 
-    func registUser(name: String, workInfo: WorkInfo?, tagInfo: TagInfo, nfcInfo: NFCTagInfo?) {
+    private func registUser(name: String, workInfo: WorkInfo?, tagInfo: TagInfo, nfcInfo: NFCTagInfo?) {
 
         guard let workInfo = workInfo else {
             print("workInfo is nil")
@@ -78,3 +85,4 @@ class UserAuthService: ObservableObject {
     }
 
 }
+

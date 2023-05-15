@@ -12,7 +12,7 @@ struct checkNFCApp: App {
 
     var body: some Scene {
         WindowGroup {
-            MainView()
+            MainContainerView()
         }
         
     }

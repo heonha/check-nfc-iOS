@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-class RegistViewModel: ViewModelBase, NFCTagReaderDelegate {
+class RegistViewModel: ViewModelBase {
 
     private let nfcService = NFCTagReader()
 
@@ -20,7 +20,6 @@ class RegistViewModel: ViewModelBase, NFCTagReaderDelegate {
 
     override init() {
         super.init()
-        nfcService.delegate = self
     }
 
     func settedTag(_ tag: NFCTagInfo) {
@@ -41,7 +40,7 @@ class RegistViewModel: ViewModelBase, NFCTagReaderDelegate {
     func registUser(withTag tagInfo: TagInfo) {
         
         self.tagInfo = .nfcTag
-        UserAuthService.shared.registUser(name: name, workInfo: workInfo, tagInfo: tagInfo, nfcInfo: nfcTagInfo)
+        UserAuthService.shared.setRegistUser(name: name, workInfo: workInfo, tagInfo: tagInfo, nfcInfo: nfcTagInfo)
     }
 
     func setWorkInfo(workingTime working: CGFloat, lunchTime lunch: CGFloat) {

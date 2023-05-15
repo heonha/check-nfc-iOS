@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct DashboardView: View {
+struct HomeView: View {
 
     @State private var showDashboard = false
 
@@ -29,12 +29,12 @@ struct DashboardView: View {
                 .padding()
 
                 NavigationLink {
-                    DetailDashboardView()
+                    HomeDetailView()
                 } label: {
                     timeDashboard
                 }
                 .sheet(isPresented: $showDashboard, content: {
-                    DetailDashboardView()
+                    HomeDetailView()
                 })
                 .padding()
 
