@@ -40,7 +40,7 @@ class RegistViewModel: ViewModelBase {
     func registUser(withTag tagInfo: TagInfo) {
         
         self.tagInfo = .nfcTag
-        UserAuthService.shared.registUser(name: name, workInfo: workInfo, tagInfo: tagInfo, nfcInfo: nfcTagInfo)
+        UserAuthService.shared.setRegistUser(name: name, workInfo: workInfo, tagInfo: tagInfo, nfcInfo: nfcTagInfo)
     }
 
     func setWorkInfo(workingTime working: CGFloat, lunchTime lunch: CGFloat) {
